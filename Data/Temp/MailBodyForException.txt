@@ -1,0 +1,13 @@
+Dear sir/madam.<br><br>
+I wanted to bring your attention, an exception encountered during the Batch run execution of the RSK Sales order. <br>
+
+Please find attached related Screenshots and the exception details below.<br>
+Exception details<br><br>
+•	Exception message:  <message><br>
+•	Timestamp:  <timestamp><br>
+•	Exception Source:  <exceptionSource><br><br>
+
+Note: The email SO parked for human intervention under 'SOP RSK Orders/Not Processed' mail folder.<br><br>
+
+
+Regards,<br>PGP RPA BOT Services<br>Note- This is System generate mail.<br> 

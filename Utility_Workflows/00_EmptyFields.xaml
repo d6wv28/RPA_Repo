@@ -1,0 +1,176 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="_00_EmptyFields" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="847.3333333333334,2046.666666666667" sap2010:WorkflowViewState.IdRef="_00_EmptyFields_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="_00_EmptyFields" sap:VirtualizedContainerService.HintSize="546,1982" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Create Sales Documents" sap:VirtualizedContainerService.HintSize="484,1874" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="367f0010-d47c-40bf-ac04-3cae15470856" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="empty the field if any values found" sap:VirtualizedContainerService.HintSize="450,1576.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message:&quot;Bot empting all the Sales org fields&quot;" sap:VirtualizedContainerService.HintSize="388,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Bot empting all the Sales org fields&quot;]" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Order Type'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="Simulate" ScopeIdentifier="367f0010-d47c-40bf-ac04-3cae15470856" Text="[string.Empty]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable CvElementArea="320, 297, 65, 32" CvType="InputBox" DesignTimeRectangle="320, 297, 65, 32" DesignTimeScaleFactor="1.5" ElementType="InputBox" Guid="cbfa81f7-dea6-450f-8837-ed4d8dcfda75" InformativeScreenshot="ed1af413ae4b9d6f4024fded2a3a3374.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Create Sales Documents' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V3" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="52, 304, 109, 25" CvTextArgument="Order Type" CvType="Text" DesignTimeRectangle="52, 304, 109, 25" ElementType="Text" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Sales Organization'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="Simulate" ScopeIdentifier="367f0010-d47c-40bf-ac04-3cae15470856" Text="[String.Empty]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable CvElementArea="320, 400, 67, 33" CvType="InputBox" DesignTimeRectangle="322, 402, 64, 31" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;sap id='usr/ctxtVBAK-VKORG' /&gt;" FuzzySelectorArgument="&lt;sap id='usr/ctxtVBAK-VKORG' /&gt;" Guid="cf311b45-18e8-42f6-8fee-bf9e4c2d00fa" InformativeScreenshot="f8c44387883300fcf070ab6b94147cf6.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Create Sales Documents' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V3" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="48, 405, 176, 26" CvTextArgument="Sales Organization" CvType="Text" DesignTimeRectangle="49, 402, 272, 31" ElementType="Text" FullSelectorArgument="&lt;sap id='usr/lblVBAK-VKORG' /&gt;" FuzzySelectorArgument="&lt;sap id='usr/lblVBAK-VKORG' check:text='Sales Organization' /&gt;" SearchSteps="Selector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Distribution Channel'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="Simulate" ScopeIdentifier="367f0010-d47c-40bf-ac04-3cae15470856" Text="[String.Empty]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable CvElementArea="320, 434, 40, 31" CvType="InputBox" DesignTimeRectangle="322, 436, 38, 31" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;sap id='usr/ctxtVBAK-VTWEG' /&gt;" FuzzySelectorArgument="&lt;sap id='usr/ctxtVBAK-VTWEG' /&gt;" Guid="6dc7e3fb-c3f6-4309-9f1b-501b177dc3a7" InformativeScreenshot="18e3171cf5fbccbdbd039ce863052784.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Create Sales Documents' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V3" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="49, 439, 192, 22" CvTextArgument="Distribution Channel" CvType="Text" DesignTimeRectangle="49, 436, 272, 31" ElementType="Text" FullSelectorArgument="&lt;sap id='usr/lblVBAK-VTWEG' /&gt;" FuzzySelectorArgument="&lt;sap id='usr/lblVBAK-VTWEG' check:text='Distribution Channel' /&gt;" SearchSteps="Selector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Division'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_4" InteractionMode="Simulate" ScopeIdentifier="367f0010-d47c-40bf-ac04-3cae15470856" Text="[String.Empty]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable CvElementArea="321, 469, 39, 32" CvType="InputBox" DesignTimeRectangle="322, 470, 38, 31" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;sap id='usr/ctxtVBAK-SPART' /&gt;" FuzzySelectorArgument="&lt;sap id='usr/ctxtVBAK-SPART' /&gt;" Guid="f30c7feb-a98a-445c-ba9e-3368cddd7afa" InformativeScreenshot="bf20c65c4b02f74d445ff079753858f5.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Create Sales Documents' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V3" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="49, 474, 73, 21" CvTextArgument="Division" CvType="Text" DesignTimeRectangle="49, 470, 272, 31" ElementType="Text" FullSelectorArgument="&lt;sap id='usr/lblVBAK-SPART' /&gt;" FuzzySelectorArgument="&lt;sap id='usr/lblVBAK-SPART' check:text='Division' /&gt;" SearchSteps="Selector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Sales office'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_5" InteractionMode="Simulate" ScopeIdentifier="367f0010-d47c-40bf-ac04-3cae15470856" Text="[String.Empty]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable CvElementArea="320, 503, 65, 32" CvType="InputBox" DesignTimeRectangle="322, 504, 64, 31" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;sap id='usr/ctxtVBAK-VKBUR' /&gt;" FuzzySelectorArgument="&lt;sap id='usr/ctxtVBAK-VKBUR' /&gt;" Guid="c954f322-3501-4ced-b745-fc8fdc281ea4" InformativeScreenshot="eeaf15726f5f88676b947dd4c42acf5f.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Create Sales Documents' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V3" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="48, 507, 110, 22" CvTextArgument="Sales office" CvType="Text" DesignTimeRectangle="49, 504, 272, 31" ElementType="Text" FullSelectorArgument="&lt;sap id='usr/lblVBAK-VKBUR' /&gt;" FuzzySelectorArgument="&lt;sap id='usr/lblVBAK-VKBUR' check:text='Sales office' /&gt;" SearchSteps="Selector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-11, -11, 1942, 1150" FilePath="C:\Program Files\SAP\FrontEnd\SAPGUI\saplogon.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAALkSURBVGhD7ZZdSFNhGMfXXRfddVWws6IuIu0Di4iQ9TGtq0IIJGQ3QUGGTcqLyuuy/GjqdAVFweY46paaGWg3tk23cu5DrPxqiEKJdBF9XBVtT89zPC5P29zy7AwH7w/+sKu9//9/7573UTEYDAaDwWDI4Ktj01aUJgelRm1UzXQcdvW1XZh0WMsnckE91ksT79qLpr84NlswwBZVf9v5+UPNHuCMwZzQWXMvjPCnQp869+YJVyhXAmwzBuCcuQt8fJGbzH/sLNiQUwFOt/aj+eKxBXt+gWB8mfUeQIPS33dAkD/uwdZ3iLb/sp4D0LXB5qN+XvcGmz8oWpbyb4D85gBoW3ygbfKCttGjrPCM3fV4doNPYnxZZdj8KF/kx+Z3inbjkQS4F4DK7ikIL36Huc8/FNXs4jcY8H2AvOqnwN0Zkhjfjs2XtL4AbH4Imz8gWk2MNIAfbj6fhJ+/foPS+MbDoKtqAe66HTS1XkmAUnMPjsqTOCr37xJtJicuQK+yASKRCPjfhqHwSiNwVy3Y/rDwy9P51DyZx2njWrDv2RcblauR7QCh97NwwlCP5q3A1bhi5kl0bah5Mi/aS022AkQiUXgdmoYj5bXAVT5ZuveieZo29IelO0/XJq3ml8lGgGg0CuNTc3Csog64iofA3RqMmac5T6OSpk3KP2wilA5A5r3BSSi8jM0bHoPmtjNmnkSPFM35VUflaigZgK4NNS+Yx+Y1QvN+4SzxkRJe2KSPVDpIAwTgzCMfNPWNgKnbCaauV7JU1/4StAYjqKn5FdeGtLSYFY8lXA/+B0kA0l38XP0M1FU2UF9rkykbcDfwoapxx5qnUUkrMW2VcYvZWogLgAdwDaPA1ePzngnRd61oPm6fl0t8AGWUdJ+XS7YCJN3n5aJ0gJT7vFyUDJDWPi+XQZt+vtQ8ADqTM+O6+IBPvc/LZabjqGXYVuZ22fQZl58vsa9pPWAwGAwGg8FgpIFK9Qc/P+khaqIRGAAAAABJRU5ErkJggg==" InformativeScreenshot="aa5c6505d4c1017150888ad5dd1449dd.png" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Create Sales Documents' /&gt;" Title="Exit Order Processing" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

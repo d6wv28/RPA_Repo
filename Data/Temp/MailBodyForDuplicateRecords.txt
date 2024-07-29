@@ -1,0 +1,16 @@
+<html> 
+<body>
+    <p>Dear [Request Sender's Name],</p>
+    
+    <p>Thank you for your email regarding the creation of RSK sales orders. Upon reviewing the data provided, we have identified some duplicate records in the input. Please find the details of the duplicate records below:</p>
+    
+    <DuplicateRecordsTable>
+
+    <p>We kindly request you to review the duplicate records and provide us with the necessary corrections or confirmations to proceed with the sales order creation.</p>
+    
+    <p>Thank you for your attention to this matter. We look forward to your prompt response.</p>
+    
+    <p>Best regards,<br>PGP RPA BOT Services <br>Note- This is System generate mail. 
+</p>
+</body>
+</html>

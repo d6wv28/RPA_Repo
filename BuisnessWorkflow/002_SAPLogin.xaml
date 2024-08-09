@@ -1,8 +1,8 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SequenceSAPLogin" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ucas="clr-namespace:UiPath.Core.Activities.SAP;assembly=UiPath.UiAutomation.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SequenceSAPLogin" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ucas="clr-namespace:UiPath.Core.Activities.SAP;assembly=UiPath.UiAutomation.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1153.3333333333333,1028</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1168.6666666666667,3904</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -148,41 +148,71 @@
       <AssemblyReference>System.Net.ServicePoint</AssemblyReference>
       <AssemblyReference>System.Net.WebHeaderCollection</AssemblyReference>
       <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Sequence_ SAP Login" sap:VirtualizedContainerService.HintSize="552,963.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_572">
+  <Sequence DisplayName="Sequence_ SAP Login" sap:VirtualizedContainerService.HintSize="1178.6666666666667,3839.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_572">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ss:SecureString" Name="secSAPPassword" />
+      <Variable x:TypeArguments="x:String" Name="strSAPUserID" />
+      <Variable x:TypeArguments="x:String" Name="BotFolder" />
+      <Variable x:TypeArguments="x:String" Name="strConnectionName" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try to login Catch exceptinal error messages" sap:VirtualizedContainerService.HintSize="490,852.6666666666666" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <ui:MultipleAssign DisplayName="Multiple Assign: Get SAP arguments" sap:VirtualizedContainerService.HintSize="1116.6666666666667,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strSAPUserID]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_Config("SAPCredentials").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strConnectionName]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_Config("ConnectionName").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <TryCatch DisplayName="Try to login to SAP Catch exception error messages" sap:VirtualizedContainerService.HintSize="1116.6666666666667,3571.3333333333335" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap2010:Annotation.AnnotationText="Invoke SAP Login workdlow: Logs in SAP with the provided user credentials in assets with Name and Orchestrator Folder path in Setting sheet of config file&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. &#xA;" DisplayName="Sequence for SAP log in" sap:VirtualizedContainerService.HintSize="1016,2390.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_569">
-          <Sequence.Variables>
-            <Variable x:TypeArguments="x:Boolean" Name="isSystemExist" />
-            <Variable x:TypeArguments="ss:SecureString" Default="[new System.net.NetworkCredential(&quot;&quot;,secSAPPassword).SecurePassword]" Name="secSAPPassword" />
-            <Variable x:TypeArguments="x:String" Default="[in_Config(&quot;SAP Credentials&quot;).ToString]" Name="strSAPUserID" />
-            <Variable x:TypeArguments="x:String" Name="BotFolder" />
-            <Variable x:TypeArguments="x:String" Default="[in_Config(&quot;SAP Connection&quot;).ToString]" Name="strConnectionName" />
-            <Variable x:TypeArguments="ui:UiElement" Name="SAPWindow" />
-          </Sequence.Variables>
+        <Sequence sap2010:Annotation.AnnotationText="Invoke SAP Login workdlow: Logs in SAP with the provided user credentials in assets with Name and Orchestrator Folder path in Setting sheet of config file&#xA;&#xA;If system exception occurs, Bot sends an email with screenshot." DisplayName="Sequence for SAP log in" sap:VirtualizedContainerService.HintSize="1078,3309.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_582">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <x:Boolean x:Key="IsPinned">False</x:Boolean>
               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign DisplayName="Get Orchestrator Folder" sap:VirtualizedContainerService.HintSize="954,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign DisplayName="Get Orchestrator Folder" sap:VirtualizedContainerService.HintSize="1016,86" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[BotFolder]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[in_Config("BotFolder").tostring]</InArgument>
+              <InArgument x:TypeArguments="x:String">[in_Config("OrchestratorQueueFolder").tostring]</InArgument>
             </Assign.Value>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <Assign DisplayName="Get SAP Connection Name" sap:VirtualizedContainerService.HintSize="954,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign DisplayName="Get SAP Connection Name" sap:VirtualizedContainerService.HintSize="1016,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[strConnectionName]</OutArgument>
             </Assign.To>
@@ -190,17 +220,17 @@
               <InArgument x:TypeArguments="x:String">[in_Config("ConnectionName").ToString]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;SAP Credentials&quot;).ToString]" CacheStrategy="Execution" DisplayName="Get SAP Credentials from Orcheastrator folder" sap:VirtualizedContainerService.HintSize="954,144.66666666666666" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[secSAPPassword]" Username="[strSAPUserID]" />
-          <ui:RetryScope DisplayName="Retry Scope: SAP Logon" sap:VirtualizedContainerService.HintSize="954,492.6666666666667" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="5" RetryInterval="00:00:02">
+          <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;SAPCredentials&quot;).ToString]" CacheStrategy="Execution" DisplayName="Get SAP Credentials from Orcheastrator folder" sap:VirtualizedContainerService.HintSize="1016,176.66666666666666" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[secSAPPassword]" Username="[strSAPUserID]" />
+          <ui:RetryScope DisplayName="Retry Scope: SAP Logon" sap:VirtualizedContainerService.HintSize="1016,524.6666666666666" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="5" RetryInterval="00:00:02">
             <ui:RetryScope.ActivityBody>
               <ActivityAction>
-                <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="450,314" sap2010:WorkflowViewState.IdRef="Sequence_581">
+                <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,314" sap2010:WorkflowViewState.IdRef="Sequence_581">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ucas:Logon Window="{x:Null}" sap2010:Annotation.AnnotationText="SAP Logon with Connection name and fetched credentials&#xA;in_Config(&quot;SAPConnection&quot;).ToString" ConnectionName="[strConnectionName]" DelayBetweenRetries="1000" DisplayName="SAP Logon with Connection name and fetched credentials" sap:VirtualizedContainerService.HintSize="388,203.33333333333334" sap2010:WorkflowViewState.IdRef="Logon_8" Retries="5" SAPLogonPath="C:\Program Files\SAP\FrontEnd\SAPGUI\saplogon.exe">
+                  <ucas:Logon Window="{x:Null}" sap2010:Annotation.AnnotationText="SAP Logon with Connection name and fetched credentials&#xA;in_Config(&quot;SAPConnection&quot;).ToString" ConnectionName="[strConnectionName]" DelayBetweenRetries="1000" DisplayName="SAP Logon with Connection name and fetched credentials" sap:VirtualizedContainerService.HintSize="354,226" sap2010:WorkflowViewState.IdRef="Logon_8" Retries="5" SAPLogonPath="C:\Program Files\SAP\FrontEnd\SAPGUI\saplogon.exe">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -215,8 +245,79 @@
             <ui:RetryScope.Condition>
               <ActivityFunc x:TypeArguments="x:Boolean" />
             </ui:RetryScope.Condition>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
           </ui:RetryScope>
-          <ucas:Login Password="{x:Null}" Window="{x:Null}" Client="100" DisplayName="SAP Login 'saplogon.exe  SAP'" sap:VirtualizedContainerService.HintSize="954,375.3333333333333" sap2010:WorkflowViewState.IdRef="Login_6" IsSecure="True" Language="EN" MultiLogonOptionToChoose="Single" SecurePassword="[secSAPPassword]" Timeout="10000" Username="[strSAPUserID]">
+          <uix:NCheckState DisplayName="Check App State : Planned SAP downtime notification" sap:VirtualizedContainerService.HintSize="1016,57.333333333333336" sap2010:WorkflowViewState.IdRef="NCheckState_6" Version="V3">
+            <uix:NCheckState.IfExists>
+              <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="512,683.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_583">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: SAP Logon 800" sap:VirtualizedContainerService.HintSize="450,592.6666666666666" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="e2b1025f-aac2-4a4b-8ebe-94c9d613333d" Version="V2">
+                  <uix:NApplicationCard.Body>
+                    <ActivityAction x:TypeArguments="x:Object">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,272.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_585">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Button Continue (F12)'" sap:VirtualizedContainerService.HintSize="354,184.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e2b1025f-aac2-4a4b-8ebe-94c9d613333d" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable CvElementArea="775, 341, 35, 35" CvType="Button" DesignTimeRectangle="778, 343, 31, 31" DesignTimeScaleFactor="1.5" ElementType="Button" FullSelectorArgument="&lt;sap id='tbar[0]/btn[12]' /&gt;" FuzzySelectorArgument="&lt;sap id='tbar[0]/btn[12]' /&gt;" Guid="3a6db897-eb56-45bf-9b11-3b07a2b9e796" InformativeScreenshot="d9738a12f36cebea68a4bd9c0a99e84d.png" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='#32770' title='System Messages' idx='*' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V3" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CvElementArea="809, 340, 34, 34" CvType="Button" DesignTimeRectangle="812, 343, 31, 31" ElementType="Button" FullSelectorArgument="&lt;sap id='tbar[0]/btn[15]' /&gt;" FuzzySelectorArgument="&lt;sap id='tbar[0]/btn[15]' /&gt;" SearchSteps="Selector" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                      </Sequence>
+                    </ActivityAction>
+                  </uix:NApplicationCard.Body>
+                  <uix:NApplicationCard.TargetApp>
+                    <uix:TargetApp Area="735, 227, 875, 875" FilePath="C:\Program Files\SAP\FrontEnd\SAPGUI\saplogon.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAALXSURBVGhD7ZbdS1NxGMfXdS831U3gWVEXki6XdZfEbLMIE4QgJKRC1rtYzV7sKihT5xs5N0dQF+3l2DaWSIJBYW46Mz2ahA27L28C6y/o6XnOzrTTXvPsDAe/D3xvz/l+v+d3nt+jYTAYDAaDwVDAr8CWnShtgWqzZumlyfvGfW4p4LoaLQQNua5EFwdNX1cC210YYJfmveda2NT/Frje+YLQaccwfORPfPruO1AiHqFCCbC7dw7qHEGY4U1hMv/NV76poALU2EfRfNXCsr+0XDQeZ6MH0KLqBwIwz1dGsPW9ku01NnIAOjbY/G+BN05j84cly3L+DaDriYChaxQM1td50AiUWseB656RGY/rLDY/y5sEbH6fZDcRWYAeARpt/fDZrYcvnmJVtejeD8OOU6Br4YFrn5AZ34PN19pHAJufwOYPSVaTIwvQLcDdvsfww7cDcMaqqpBdD8bLzcDd84PWOiULcMYxhKPyOI5KfbFkMzXyALNw50mrqgFW/NtgwlEGFebbwN18ge1P4pefE99PzZN5nDahZb+ubHVUpiPfASIDOjhmvgHcLRdwbaFV8yQ6NtQ8mZfsZSZfAaj5MZsejjRYgLO4Zc3TtKEfls48HZusmo+TjwA/A1th2lkChgvXgWt6Lmue5jyNSpo2GX/YZKgdgMy/6zsIFeebEsyT6JKiOZ92VKZDzQB0bKh50XzjU9C2jqF5QXyXdEmJN2zKSyobZAHw4dUdz6CjvQY6H1aiDIr06MFJOGq2QBE2HzO/1nxsMataSLoe/A+yANiKti0MXEsQiiwelFuZmj3A3Q/iscFnSs3TqKSVmLbKhMVsPcgDxELQUeK68HrPhehZfzWfsM8rJTGAOkq5zyslXwFS7vNKUTtAxn1eKWoGyGqfV8qk91K4wfkKjLbxnOuik8+8zyslOljd+cFbFw556nMuga/1r2s9YDAYDAaDwWBkgUbzByqh4hV1LC8EAAAAAElFTkSuQmCC" InformativeScreenshot="e564110c175d9e40217f9cd3b8044292.png" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='SAP Logon 800' /&gt;" Title="SAP Logon 800" />
+                  </uix:NApplicationCard.TargetApp>
+                </uix:NApplicationCard>
+              </Sequence>
+            </uix:NCheckState.IfExists>
+            <uix:NCheckState.IfNotExists>
+              <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,107.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_584">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </uix:NCheckState.IfNotExists>
+            <uix:NCheckState.Target>
+              <uix:TargetAnchorable DesignTimeRectangle="20, 168, 780, 23" DesignTimeScaleFactor="1.5" ElementType="Text" FullSelectorArgument="&lt;sap id='usr' /&gt;&lt;sap text='Hello all, CR-24-004615  -* in Q4A' type='GuiLabel' /&gt;" FuzzySelectorArgument="&lt;sap id='usr' /&gt;&lt;sap text='Hello all, CR-24-004615  - Planned LCM Activities in Q4A' type='GuiLabel' check:text='Hello all, CR-24-004615  - Planned LCM Activities in Q4A' /&gt;" Guid="42c84f9e-5178-4c90-9ab9-db9038e12cc4" ImageBase64="" InformativeScreenshot="2f6c6bd9d6364c07e2f21409151b932b.png" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='#32770' title='System Messages' idx='*' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V3" Visibility="Interactive">
+                <uix:TargetAnchorable.Anchors>
+                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                    <uix:Target DesignTimeRectangle="20, 72, 156, 23" ElementType="Text" FullSelectorArgument="&lt;sap id='usr' /&gt;&lt;sap text='Author' type='GuiLabel' /&gt;" FuzzySelectorArgument="&lt;sap id='usr' /&gt;&lt;sap text='Author' type='GuiLabel' check:text='Author' /&gt;" SearchSteps="Selector" />
+                  </scg:List>
+                </uix:TargetAnchorable.Anchors>
+              </uix:TargetAnchorable>
+            </uix:NCheckState.Target>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NCheckState>
+          <ucas:Login Password="{x:Null}" Window="{x:Null}" Client="008" DisplayName="SAP Login 'saplogon.exe  SAP'" sap:VirtualizedContainerService.HintSize="1016,407.3333333333333" sap2010:WorkflowViewState.IdRef="Login_6" IsSecure="True" Language="EN" MultiLogonOptionToChoose="Single" SecurePassword="[secSAPPassword]" Timeout="10000" Username="[strSAPUserID]">
             <ucas:Login.Target>
               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="57a8f714-c41a-432a-ac78-a298796affbf" InformativeScreenshot="f917cc263c0dab6976cab801e49a5178" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='SAP' /&gt;">
                 <ui:Target.TimeoutMS>
@@ -234,7 +335,54 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ucas:Login>
-          <uix:NCheckState DisplayName="Check App State 'long text)'" sap:VirtualizedContainerService.HintSize="954,616.6666666666666" sap2010:WorkflowViewState.IdRef="NCheckState_5" Version="V3">
+          <uix:NCheckState DisplayName="Check App State 'User already logged in: Terminate current login session ?" sap:VirtualizedContainerService.HintSize="1016,942" sap2010:WorkflowViewState.IdRef="NCheckState_7" Timeout="5" Version="V3">
+            <uix:NCheckState.IfExists>
+              <Sequence DisplayName="Target appears: Yest terminate current login" sap:VirtualizedContainerService.HintSize="512,688.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_586">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: License Information for Multiple Logons" sap:VirtualizedContainerService.HintSize="450,598" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" ScopeGuid="531e7a87-9899-4d56-af1e-fec1aa88ccdc" Version="V2">
+                  <uix:NApplicationCard.Body>
+                    <ActivityAction x:TypeArguments="x:Object">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,275.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_587">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Button Confirm'" sap:VirtualizedContainerService.HintSize="354,184.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="531e7a87-9899-4d56-af1e-fec1aa88ccdc" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable DesignTimeRectangle="778, 343, 31, 31" DesignTimeScaleFactor="1.5" ElementType="Button" FullSelectorArgument="&lt;sap id='tbar[0]/btn[12]' /&gt;" FuzzySelectorArgument="&lt;sap id='tbar[0]/btn[12]' /&gt;" Guid="fb1368bf-844f-410a-bd64-8b014c6df3b8" InformativeScreenshot="420e6b1d2662f979a63f7205d6426b4a.png" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='#32770' title='System Messages' idx='*' /&gt;" SearchSteps="Selector" Version="V3" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                      </Sequence>
+                    </ActivityAction>
+                  </uix:NApplicationCard.Body>
+                  <uix:NApplicationCard.TargetApp>
+                    <uix:TargetApp Area="380, 273, 1087, 554" FilePath="C:\Program Files\SAP\FrontEnd\SAPGUI\saplogon.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAALkSURBVGhD7ZZdSFNhGMfXXRfddVWws6IuIu0Di4iQ9TGtq0IIJGQ3QUGGTcqLyuuy/GjqdAVFweY46paaGWg3tk23cu5DrPxqiEKJdBF9XBVtT89zPC5P29zy7AwH7w/+sKu9//9/7573UTEYDAaDwWDI4Ktj01aUJgelRm1UzXQcdvW1XZh0WMsnckE91ksT79qLpr84NlswwBZVf9v5+UPNHuCMwZzQWXMvjPCnQp869+YJVyhXAmwzBuCcuQt8fJGbzH/sLNiQUwFOt/aj+eKxBXt+gWB8mfUeQIPS33dAkD/uwdZ3iLb/sp4D0LXB5qN+XvcGmz8oWpbyb4D85gBoW3ygbfKCttGjrPCM3fV4doNPYnxZZdj8KF/kx+Z3inbjkQS4F4DK7ikIL36Huc8/FNXs4jcY8H2AvOqnwN0Zkhjfjs2XtL4AbH4Imz8gWk2MNIAfbj6fhJ+/foPS+MbDoKtqAe66HTS1XkmAUnMPjsqTOCr37xJtJicuQK+yASKRCPjfhqHwSiNwVy3Y/rDwy9P51DyZx2njWrDv2RcblauR7QCh97NwwlCP5q3A1bhi5kl0bah5Mi/aS022AkQiUXgdmoYj5bXAVT5ZuveieZo29IelO0/XJq3ml8lGgGg0CuNTc3Csog64iofA3RqMmac5T6OSpk3KP2wilA5A5r3BSSi8jM0bHoPmtjNmnkSPFM35VUflaigZgK4NNS+Yx+Y1QvN+4SzxkRJe2KSPVDpIAwTgzCMfNPWNgKnbCaauV7JU1/4StAYjqKn5FdeGtLSYFY8lXA/+B0kA0l38XP0M1FU2UF9rkykbcDfwoapxx5qnUUkrMW2VcYvZWogLgAdwDaPA1ePzngnRd61oPm6fl0t8AGWUdJ+XS7YCJN3n5aJ0gJT7vFyUDJDWPi+XQZt+vtQ8ADqTM+O6+IBPvc/LZabjqGXYVuZ22fQZl58vsa9pPWAwGAwGg8FgpIFK9Qc/P+khaqIRGAAAAABJRU5ErkJggg==" InformativeScreenshot="8e000768a0913151fd8f859079225f29.png" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='License Information for Multiple Logons' idx='*' /&gt;" Title="License Information for Multiple Logons" />
+                  </uix:NApplicationCard.TargetApp>
+                </uix:NApplicationCard>
+              </Sequence>
+            </uix:NCheckState.IfExists>
+            <uix:NCheckState.IfNotExists>
+              <Sequence DisplayName="Target does not appear: No login termination needed" sap:VirtualizedContainerService.HintSize="450,107.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_588">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </uix:NCheckState.IfNotExists>
+            <uix:NCheckState.Target>
+              <uix:TargetAnchorable DesignTimeRectangle="0, 36, 853, 294" DesignTimeScaleFactor="1.5" ElementType="Container" FullSelectorArgument="&lt;sap id='usr' /&gt;" FuzzyAccuracy="1" FuzzySelectorArgument="&lt;sap id='usr' /&gt;" Guid="24a0b43a-3a5d-4ef7-972f-de1d2b539b3d" ImageBase64="" InformativeScreenshot="9d5ff65746bc69b71d92fdf5e45e1bf2.png" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='#32770' title='License Information for Multiple Logons' idx='*' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V3" Visibility="Interactive" />
+            </uix:NCheckState.Target>
+          </uix:NCheckState>
+          <uix:NCheckState DisplayName="Check App State 'SAP home screen" sap:VirtualizedContainerService.HintSize="1016,680.6666666666666" sap2010:WorkflowViewState.IdRef="NCheckState_5" Version="V3">
             <uix:NCheckState.IfExists>
               <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,263.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_576">
                 <sap:WorkflowViewStateService.ViewState>
@@ -242,27 +390,27 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message_Successful login without disputes" sap:VirtualizedContainerService.HintSize="388,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_58" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Bot could login to SAP without any disputes or alert&quot;]" />
+                <ui:LogMessage DisplayName="Log Message_Successful login without disputes" sap:VirtualizedContainerService.HintSize="388,172.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_58" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Bot could login to SAP without any disputes or alert&quot;]" />
               </Sequence>
             </uix:NCheckState.IfExists>
             <uix:NCheckState.IfNotExists>
-              <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,395.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_577">
+              <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,387.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_577">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message: Last unsuccessful login alertS" sap:VirtualizedContainerService.HintSize="388,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_57" Level="[UiPath.Core.Activities.LogLevel.Fatal]" Message="[&quot;Okay Clicked on the alert about last unsuccessful login&quot;]" />
-                <Throw DisplayName="Throw: SE Bot unable to login into SAP" Exception="[New SystemException(&quot;Bot unable to login into SAP&quot;)]" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                <ui:LogMessage DisplayName="Log Message: Last unsuccessful login alertS" sap:VirtualizedContainerService.HintSize="388,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_57" Level="[UiPath.Core.Activities.LogLevel.Fatal]" Message="[&quot;Okay Clicked on the alert about last unsuccessful login&quot;]" />
+                <Throw DisplayName="Throw: SE Bot unable to login into SAP" Exception="[New SystemException(&quot;Bot unable to login into SAP&quot;)]" sap:VirtualizedContainerService.HintSize="388,117.33333333333333" sap2010:WorkflowViewState.IdRef="Throw_2" />
               </Sequence>
             </uix:NCheckState.IfNotExists>
             <uix:NCheckState.Target>
-              <uix:TargetAnchorable DesignTimeRectangle="0, 0, 1382, 744" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;sap id='titl' /&gt;" Guid="0101b1dc-dd13-44ff-914d-2bbf0dc52f78" InformativeScreenshot="3603495de1f8dc58b300e9a558211377.png" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='SAP Easy Access' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V3" Visibility="Interactive">
-                <uix:TargetAnchorable.FuzzySelectorArgument>
-                  <InArgument x:TypeArguments="x:String">
-                    <Literal x:TypeArguments="x:String" Value="" />
-                  </InArgument>
-                </uix:TargetAnchorable.FuzzySelectorArgument>
+              <uix:TargetAnchorable DesignTimeRectangle="30, 125, 1882, 46" DesignTimeScaleFactor="1.5" ElementType="Toolbar" FullSelectorArgument="&lt;sap id='titl' /&gt;" FuzzySelectorArgument="&lt;sap id='titl' check:text='SAP Easy Access  -  User Menu for PGP Distribution - SAP Sales Order' /&gt;" Guid="d039b42a-3ef4-4908-b980-432b443b3fd9" ImageBase64="" InformativeScreenshot="a0b75b62aabfd82f5c9ae21739f9547f.png" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='SAP Easy Access  -  User Menu for PGP Distribution - SAP Sales O*' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V3" Visibility="Interactive">
+                <uix:TargetAnchorable.Anchors>
+                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                    <uix:Target DesignTimeRectangle="860, 72, 33, 33" ElementType="Button" FullSelectorArgument="&lt;sap id='tbar[0]/btn[446]' /&gt;" FuzzySelectorArgument="&lt;sap id='tbar[0]/btn[446]' /&gt;" SearchSteps="Selector" />
+                  </scg:List>
+                </uix:TargetAnchorable.Anchors>
               </uix:TargetAnchorable>
             </uix:NCheckState.Target>
             <sap:WorkflowViewStateService.ViewState>
@@ -272,7 +420,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </uix:NCheckState>
-          <ui:LogMessage DisplayName="Log Message: SAP login Complete" sap:VirtualizedContainerService.HintSize="954,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_53" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;SAP logIn Successful  &quot;+ strSAPUserID]">
+          <ui:LogMessage DisplayName="Log Message: SAP login Complete" sap:VirtualizedContainerService.HintSize="1016,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_53" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;SAP logIn Successful  &quot;+ strConnectionName]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -283,10 +431,10 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:SystemException" sap:VirtualizedContainerService.HintSize="456,679.3333333333334" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+        <Catch x:TypeArguments="s:SystemException" sap:VirtualizedContainerService.HintSize="1082.6666666666667,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -294,7 +442,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:SystemException" Name="SystemException" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Exception handling" sap:VirtualizedContainerService.HintSize="450,608.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_580">
+            <Sequence DisplayName="Exception handling" sap:VirtualizedContainerService.HintSize="416,675.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_580">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Name="str_ExceptionFilePath" />
               </Sequence.Variables>
@@ -304,20 +452,23 @@
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Framework\TakeScreenshot.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Framework\TakeScreenshot.xaml">
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Framework\TakeScreenshot.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="354,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Framework\TakeScreenshot.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_Folder">[in_Config("Folder Path").ToString]</InArgument>
                   <InOutArgument x:TypeArguments="x:String" x:Key="io_FilePath">[str_ExceptionFilePath]</InOutArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_FolderPath">[Path.Combine(TodayFolderPath,"Exception")]</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
-              <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[in_Config(&quot;Exceptipn body&quot;).ToString]" Cc="[in_Config(&quot;CC to&quot;).ToString]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="388,158" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="False" IsDraft="False" Sensitivity="Normal" Subject="SOP-Linde Phillippines : Batch-Business Exception" To="[in_Config(&quot;Exception mail&quot;).ToString]">
-                <ui:SendOutlookMail.Files>
-                  <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
-                    <InArgument x:TypeArguments="x:String">[str_ExceptionFilePath]</InArgument>
-                  </scg:List>
-                </ui:SendOutlookMail.Files>
-              </ui:SendOutlookMail>
-              <ui:LogMessage DisplayName="Log Message:exception.Message" sap:VirtualizedContainerService.HintSize="388,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_59" Level="[UiPath.Core.Activities.LogLevel.Fatal]" Message="[SystemException.Source+&quot;|&quot;+SystemException.Message]" />
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendEmailDuplicatesAndExceptions - Invoke Workflow File (Utility_Workflows\SendEmailDuplicatesAndExceptions.xaml)" sap:VirtualizedContainerService.HintSize="354,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Utility_Workflows\SendEmailDuplicatesAndExceptions.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                  <InArgument x:TypeArguments="s:Exception" x:Key="in_Exception">[New SystemException("Unable to login to SAP") With {.Source = "SAPLogin.xaml"}]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_ExMailTo">[in_Config("ExceptionEmailTo").ToString]</InArgument>
+                  <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtDuplicateRecords" />
+                  <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtUrgentDeliveries" />
+                  <InArgument x:TypeArguments="x:String" x:Key="in_strExceptionFilePath">[str_ExceptionFilePath]</InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+              <ui:LogMessage DisplayName="Log Message:exception.Message" sap:VirtualizedContainerService.HintSize="354,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_59" Level="[UiPath.Core.Activities.LogLevel.Fatal]" Message="[&quot;SAP Login expetion mail sent with screenshot&quot;]" />
             </Sequence>
           </ActivityAction>
         </Catch>

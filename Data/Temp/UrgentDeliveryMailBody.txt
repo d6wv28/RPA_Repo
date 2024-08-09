@@ -2,11 +2,11 @@
 <body>
     <p>Dear [Request Sender's Name],</p>
     
-    <p>Thank you for your email regarding the creation of RSK sales orders. Upon reviewing the data provided, we have identified some records with urgent deliveries in the input. Please find the details of the urgent delivery records below. :</p>
+    <p>Below request is not created SO because delivery request date is imminent.</p>
     
     <UrgentRequests>
 
-    <p>We kindly request you to manually handle the urgent deliveries SO requests.</p>
+    <p>Please create SO by manual.</p>
     
     <p>Thank you for your support. We look forward to your prompt attention on this.</p>
     

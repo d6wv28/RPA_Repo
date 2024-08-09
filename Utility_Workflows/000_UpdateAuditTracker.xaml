@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1152,3496.6666666666665</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1152,4376</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_000_UpdateAuditTracker_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -133,7 +133,7 @@
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="_000_UpdateAuditTracker" sap:VirtualizedContainerService.HintSize="592,3432" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="_000_UpdateAuditTracker" sap:VirtualizedContainerService.HintSize="618,4311.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="dt_AuditTrackerData" />
       <Variable x:TypeArguments="x:String" Name="strAuditTrackerFilepath" />
@@ -153,19 +153,24 @@
       <Variable x:TypeArguments="x:Object" Default="[&quot;Oxygen 50L&quot;]" Name="strMaterialDescription" />
       <Variable x:TypeArguments="x:Object" Default="[&quot;3&quot;]" Name="strQuantity" />
       <Variable x:TypeArguments="x:String" Name="CustomerSoldToParty" />
+      <Variable x:TypeArguments="x:String" Name="strConsolidatedAuditTrackerFilepath" />
+      <Variable x:TypeArguments="x:String" Name="strRequestSender" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="dtConsolidatedAuditTracker" />
+      <Variable x:TypeArguments="sd:DataRow" Name="ConsolidatedDatarow" />
+      <Variable x:TypeArguments="x:Boolean" Name="isConsolidatedAuditTrackerExist" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="000_GetBatchRun - Invoke Workflow File (Utility_Workflows\000_GetBatchRun.xaml)" sap:VirtualizedContainerService.HintSize="530,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Utility_Workflows\000_GetBatchRun.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="000_GetBatchRun - Invoke Workflow File (Utility_Workflows\000_GetBatchRun.xaml)" sap:VirtualizedContainerService.HintSize="556,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Utility_Workflows\000_GetBatchRun.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_BatchRun">[BatchRun]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:MultipleAssign DisplayName="Multiple Assign: get arguments fo tracker report" sap:VirtualizedContainerService.HintSize="530,210.66666666666666" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+    <ui:MultipleAssign DisplayName="Multiple Assign: get arguments fo tracker report" sap:VirtualizedContainerService.HintSize="556,241.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
@@ -192,10 +197,18 @@
               <InArgument x:TypeArguments="x:Boolean">True</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_62">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strConsolidatedAuditTrackerFilepath]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[Path.Combine(path.GetDirectoryName(TodayFolderPath),"Consolidated_RSK_SalesOrderTracker.xlsx")]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Multiple Assign: Get the argument to update trackers" DisplayName="Multiple Assign: Get the argument to update tracker" sap:VirtualizedContainerService.HintSize="530,456" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Multiple Assign: Get the argument to update trackers" DisplayName="Multiple Assign: Get the argument to update tracker" sap:VirtualizedContainerService.HintSize="556,456" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_28">
@@ -270,12 +283,12 @@
               <InArgument x:TypeArguments="x:Object">[in_CurrentProcessingQueueItem.SpecificContent("SOLD to Party").ToString]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_60">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_63">
             <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[BatchRun]</OutArgument>
+              <OutArgument x:TypeArguments="x:String">[strRequestSender]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[Path.GetFileNameWithoutExtension(TodayFolderPath)]</InArgument>
+              <InArgument x:TypeArguments="x:String">[in_CurrentProcessingQueueItem.SpecificContent("Request Sender").ToString]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
@@ -288,61 +301,39 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists: check Audit tracker file" Exists="[isAuditTrackerExist]" sap:VirtualizedContainerService.HintSize="530,57.333333333333336" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[strAuditTrackerFilepath]" PathType="File">
+    <Assign DisplayName="Assign: init dtConsolidatedTracker" sap:VirtualizedContainerService.HintSize="556,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataTable">[dtConsolidatedAuditTracker]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataTable">[new DataTable]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists: check Audit tracker file" Exists="[isAuditTrackerExist]" sap:VirtualizedContainerService.HintSize="556,150.66666666666666" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[strAuditTrackerFilepath]" PathType="File">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:PathExists>
-    <If Condition="[isAuditTrackerExist=False]" DisplayName="check If Today's run audit tracker exist" sap:VirtualizedContainerService.HintSize="530,872" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[isAuditTrackerExist=False]" DisplayName="check If Today's run audit tracker exist" sap:VirtualizedContainerService.HintSize="556,57.333333333333336" sap2010:WorkflowViewState.IdRef="If_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,444.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,387.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:CopyFile ContinueOnError="{x:Null}" Destination="[strAuditTrackerFilepath]" DisplayName="Copy template  File from data temp" sap:VirtualizedContainerService.HintSize="434,191.33333333333334" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[strAuditTrackerTemplateFilepath]" />
-          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-            <ui:CommentOut.Body>
-              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,430.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_11">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:ReadRange Range="{x:Null}" AddHeaders="True" sap2010:Annotation.AnnotationText="Read Range Workbook: Read SOP RSK audit tracker file" DataTable="[dt_AuditTrackerData]" DisplayName="Read Range Workbook: Read SOP RSK audit tracker file" sap:VirtualizedContainerService.HintSize="388,118.66666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="SOP_RSK" WorkbookPath="[strInputSODataFilepath]">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:ReadRange>
-                <ui:WriteRange AddHeaders="True" sap2010:Annotation.AnnotationText="Write Range Workbook: First write of SO data in Template Input Data Dump" DataTable="[dt_AuditTrackerData]" DisplayName="Write Range Workbook: First write of SO data in Template Input Data Dump" sap:VirtualizedContainerService.HintSize="388,161.33333333333334" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="SOP_RSK" StartingCell="A2" WorkbookPath="[strAuditTrackerFilepath]">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:WriteRange>
-              </Sequence>
-            </ui:CommentOut.Body>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:CommentOut>
           <Assign DisplayName="Assign: Get Tracker data initialized" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_2">
             <Assign.To>
               <OutArgument x:TypeArguments="sd:DataTable">[dt_AuditTrackerData]</OutArgument>
@@ -364,14 +355,14 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:ReadRange Range="{x:Null}" AddHeaders="True" sap2010:Annotation.AnnotationText="Read Range Workbook: Read Audit tracker data with Input data dumped" DataTable="[dt_AuditTrackerData]" DisplayName="Read Range Workbook: Read Audit tracker dat with Input data dumped" sap:VirtualizedContainerService.HintSize="530,165.33333333333334" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="SOP_RSK" WorkbookPath="[strAuditTrackerFilepath]">
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" sap2010:Annotation.AnnotationText="Read Range Workbook: Read Audit tracker data with Input data dumped" DataTable="[dt_AuditTrackerData]" DisplayName="Read Range Workbook: Read Audit tracker dat with Input data dumped" sap:VirtualizedContainerService.HintSize="556,165.33333333333334" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="SOP_RSK" WorkbookPath="[strAuditTrackerFilepath]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ReadRange>
-    <Assign DisplayName="Assign: Initiate data row" sap:VirtualizedContainerService.HintSize="530,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign DisplayName="Assign: Initiate data row" sap:VirtualizedContainerService.HintSize="556,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="sd:DataRow">[datarow]</OutArgument>
       </Assign.To>
@@ -379,9 +370,9 @@
         <InArgument x:TypeArguments="sd:DataRow">[dt_AuditTrackerData.NewRow]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Two Columns Basically &#xA;1.If Successful, Order No&#xA;2. If Unsuccessful, Failure Reason anyone would be populated for a sales order" DisplayName="Multiple Assign: get datarows added with column data" sap:VirtualizedContainerService.HintSize="530,640.6666666666666" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
+    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Two Columns Basically &#xA;1.If Successful, Order No&#xA;2. If Unsuccessful, Failure Reason anyone would be populated for a sales order" DisplayName="Multiple Assign: get datarows added with column data" sap:VirtualizedContainerService.HintSize="556,702" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
       <ui:MultipleAssign.AssignOperations>
-        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="32">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_46">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:Object">[datarow("Order type")]</OutArgument>
@@ -472,7 +463,7 @@
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_57">
             <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:Object">[datarow("If unsuccessful, reason")]</OutArgument>
+              <OutArgument x:TypeArguments="x:Object">[datarow("Reason/Credit limit")]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="x:Object">[in_IfUnsuccessfulReason]</InArgument>
@@ -502,28 +493,280 @@
               <InArgument x:TypeArguments="x:Object">[strMaterialDescription]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_64">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[datarow("Request Sender")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[strRequestSender]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_81">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[datarow("Sales Representative")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[strSalesRepresentative]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <ui:AddDataRow ArrayRow="{x:Null}" sap2010:Annotation.AnnotationText="Add Data Row: In case the audit tracker has been already copied" DataRow="[datarow]" DataTable="[dt_AuditTrackerData]" DisplayName="Add Data Row: In case the audit tracker has been already copied" sap:VirtualizedContainerService.HintSize="530,268.6666666666667" sap2010:WorkflowViewState.IdRef="AddDataRow_1">
+    <ui:AddDataRow ArrayRow="{x:Null}" sap2010:Annotation.AnnotationText="Add Data Row: In case the audit tracker has been already copied" DataRow="[datarow]" DataTable="[dt_AuditTrackerData]" DisplayName="Add Data Row: In case the audit tracker has been already copied" sap:VirtualizedContainerService.HintSize="556,119.33333333333333" sap2010:WorkflowViewState.IdRef="AddDataRow_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:AddDataRow>
-    <ui:LogMessage DisplayName="Log Message: str audit tracker copied from template folder to destination" sap:VirtualizedContainerService.HintSize="530,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;str audit tracker copied from template folder to destination&quot;]" />
-    <ui:WriteRange AddHeaders="False" sap2010:Annotation.AnnotationText="Write Range Workbook: Update Audit tracker" DataTable="[dt_AuditTrackerData]" DisplayName="Write Range Workbook: Update Audit tracker" sap:VirtualizedContainerService.HintSize="530,169.33333333333334" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="SOP_RSK" StartingCell="A2" WorkbookPath="[strAuditTrackerFilepath]">
+    <ui:LogMessage DisplayName="Log Message: str audit tracker copied from template folder to destination" sap:VirtualizedContainerService.HintSize="556,57.333333333333336" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;str audit tracker copied from template folder to destination&quot;]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+    <ui:WriteRange AddHeaders="False" sap2010:Annotation.AnnotationText="Write Range Workbook: Update Audit tracker" DataTable="[dt_AuditTrackerData]" DisplayName="Write Range Workbook: Update Audit tracker" sap:VirtualizedContainerService.HintSize="556,88" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="SOP_RSK" StartingCell="A2" WorkbookPath="[strAuditTrackerFilepath]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:WriteRange>
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists: check for Consolidated Audit tracker file" Exists="[isConsolidatedAuditTrackerExist]" sap:VirtualizedContainerService.HintSize="556,150.66666666666666" sap2010:WorkflowViewState.IdRef="PathExists_3" Path="[strConsolidatedAuditTrackerFilepath]" PathType="File">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:PathExists>
+    <If Condition="[isConsolidatedAuditTrackerExist=False]" DisplayName="check If Today's run Consoldiated audit tracker exist" sap:VirtualizedContainerService.HintSize="556,57.333333333333336" sap2010:WorkflowViewState.IdRef="If_4">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,315.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_15">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:CopyFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Copy template  File from data temp for consolidated tracker" Destination="[strConsolidatedAuditTrackerFilepath]" DisplayName="Copy template  File from data temp for consolidated tracker" sap:VirtualizedContainerService.HintSize="354,227.33333333333334" sap2010:WorkflowViewState.IdRef="CopyFile_2" Overwrite="True" Path="[strAuditTrackerTemplateFilepath]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:CopyFile>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,255.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_16">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message: SOP RSK Tracker file exist" sap:VirtualizedContainerService.HintSize="354,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;SOP RSK Tracker file exist&quot;]" />
+        </Sequence>
+      </If.Else>
+    </If>
+    <Sequence sap2010:Annotation.AnnotationText="Sequence: Read Batch1 and Batch2 Data append in Consolidated tracker" DisplayName="Sequence: Read Batch1 and Batch2 Data append in Consolidated tracker" sap:VirtualizedContainerService.HintSize="556,1533.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_17">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:ReadRange Range="{x:Null}" AddHeaders="True" sap2010:Annotation.AnnotationText="Read Range Workbook: Read Consolidated Audit tracker data with Input data dumped" DataTable="[dtConsolidatedAuditTracker]" DisplayName="Read Range Workbook: Read Audit tracker dat with Input data dumped" sap:VirtualizedContainerService.HintSize="494,165.33333333333334" sap2010:WorkflowViewState.IdRef="ReadRange_5" SheetName="SOP_RSK" WorkbookPath="[strConsolidatedAuditTrackerFilepath]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:ReadRange>
+      <Assign DisplayName="Assign. InitConsolidated Datarow" sap:VirtualizedContainerService.HintSize="494,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
+        <Assign.To>
+          <OutArgument x:TypeArguments="sd:DataRow">[Datarow]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="sd:DataRow">[dtConsolidatedAuditTracker.NewRow]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:MultipleAssign sap2010:Annotation.AnnotationText="Two Columns Basically &#xA;1.If Successful, Order No&#xA;2. If Unsuccessful, Failure Reason anyone would be populated for a sales order" DisplayName="Multiple Assign: get Consolidated datarows added with column data" sap:VirtualizedContainerService.HintSize="494,702" sap2010:WorkflowViewState.IdRef="MultipleAssign_8">
+        <ui:MultipleAssign.AssignOperations>
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="32">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_65">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Object">[datarow("Order type")]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Object">[strOrderType]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_66">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Object">[datarow("Sales Office")]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Object">[strSalesOffice]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_67">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Object">[datarow("SOLD to Party")]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Object">[strSoldToParty]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_68">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Object">[datarow("Material")]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Object">[strMaterial]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_69">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Object">[datarow("Quantity")]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Object">[strQuantity]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_70">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Object">[datarow("UOM")]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Object">[strUOM]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_71">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Object">[datarow("Date requested")]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Object">[strRequestedDate]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_72">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Object">[datarow("Order Reason")]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Object">[String.Empty]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_73">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Object">[datarow("Unloading Point")]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Object">[strUnloadingPoint]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_74">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Object">[datarow("Status")]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Object">[in_SOStatus]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_75">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Object">[datarow("If successful, sales order no")]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Object">[in_SalesOrderNumber]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_76">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Object">[datarow("Reason/Credit limit")]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Object">[in_IfUnsuccessfulReason]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_77">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Object">[datarow("Processed on")]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Object">[System.DateTime.Now.ToString("dd-MM-yyyy:HH:mm")]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_78">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Object">[datarow("Batch")]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Object">[BatchRun]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_79">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Object">[datarow("Material Description")]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Object">[strMaterialDescription]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_80">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Object">[datarow("Request Sender")]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Object">[strRequestSender]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_82">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Object">[datarow("Sales Representative")]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Object">[strSalesRepresentative]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+          </scg:List>
+        </ui:MultipleAssign.AssignOperations>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:MultipleAssign>
+      <ui:AddDataRow ArrayRow="{x:Null}" DataRow="[datarow]" DataTable="[dtConsolidatedAuditTracker]" DisplayName="Add Data Row:ConsolidatedDatarow" sap:VirtualizedContainerService.HintSize="494,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+      <ui:WriteRange AddHeaders="False" sap2010:Annotation.AnnotationText="Write Range Workbook: Update Consoldiated Audit tracker" DataTable="[dtConsolidatedAuditTracker]" DisplayName="Write Range Workbook: Update Consoldiated Audit tracker" sap:VirtualizedContainerService.HintSize="494,184" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="SOP_RSK" StartingCell="A2" WorkbookPath="[strConsolidatedAuditTrackerFilepath]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:WriteRange>
+    </Sequence>
   </Sequence>
 </Activity>

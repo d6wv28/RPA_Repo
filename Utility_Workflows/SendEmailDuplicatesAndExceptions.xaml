@@ -1,9 +1,8 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ExceptionWorkflow" this:ExceptionWorkflow.in_dtDuplicateRecords="[new DataTable]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:um="clr-namespace:UiPath.Mail;assembly=UiPath.Mail.Activities" xmlns:umab="clr-namespace:UiPath.Mail.Activities.Business;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ExceptionWorkflow" this:ExceptionWorkflow.in_dtDuplicateRecords="[new DataTable]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_Exception" Type="InArgument(s:Exception)" />
     <x:Property Name="in_ExMailTo" Type="InArgument(x:String)" />
-    <x:Property Name="in_ExMailSubject" Type="InArgument(x:String)" />
     <x:Property Name="in_dtDuplicateRecords" Type="InArgument(sd:DataTable)" />
     <x:Property Name="in_dtUrgentDeliveries" Type="InArgument(sd:DataTable)" />
     <x:Property Name="in_strExceptionFilePath" Type="InArgument(x:String)" />
@@ -14,7 +13,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1152,4258.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1152,4526</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ExceptionWorkflow_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -123,12 +122,13 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="sending email notifying buisness and RPA support" sap:VirtualizedContainerService.HintSize="598.6666666666666,4194" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="sending email notifying buisness and RPA support" sap:VirtualizedContainerService.HintSize="598.6666666666666,4461.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strExceptionFilePath" />
       <Variable x:TypeArguments="x:String" Name="dtDuplicateHtmlBody" />
       <Variable x:TypeArguments="x:String" Name="strMailBody" />
       <Variable x:TypeArguments="x:String" Name="duplicateMailBody" />
+      <Variable x:TypeArguments="x:String" Name="ExMailSubject" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -136,9 +136,15 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message: sending email" sap:VirtualizedContainerService.HintSize="536.6666666666666,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;sending email&quot;]" />
-    <If Condition="[in_Exception IsNot Nothing]" DisplayName="check If in exception message is not nothing" sap:VirtualizedContainerService.HintSize="536.6666666666666,1602" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[in_Exception IsNot Nothing]" DisplayName="check If in exception message is not nothing" sap:VirtualizedContainerService.HintSize="536.6666666666666,1601.3333333333333" sap2010:WorkflowViewState.IdRef="If_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,1325.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,1324.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="exceptionMailBody" />
           </Sequence.Variables>
@@ -163,21 +169,19 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <ui:Comment sap:VirtualizedContainerService.HintSize="434,108.66666666666667" sap2010:WorkflowViewState.IdRef="Comment_3" Text="// add cc in email as per requirement in_Config(&quot;Email_CC&quot;).ToString" />
+          <ui:Comment sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Comment_3" Text="// add cc in email as per requirement in_Config(&quot;Email_CC&quot;).ToString" />
           <Assign DisplayName="Assign: in_ExpSubject" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
             <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[in_ExMailSubject]</OutArgument>
+              <OutArgument x:TypeArguments="x:String">[ExMailSubject]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">System exception has been thrown by Bot</InArgument>
+              <InArgument x:TypeArguments="x:String">["SOP-RSK SystemException:"+in_Exception.Message.Substring(0,20)]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[exceptionMailBody]" DisplayName="Send Outlook Mail Message: exception" sap:VirtualizedContainerService.HintSize="434,182.66666666666666" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="High" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[in_ExMailSubject]" To="[in_ExMailTo]">
+          <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[exceptionMailBody]" Cc="[in_Config(&quot;ExceptionEmailTo&quot;).ToString]" DisplayName="Send Outlook Mail Message: exception" sap:VirtualizedContainerService.HintSize="434,182.66666666666666" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="High" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[ExMailSubject]" To="[in_ExMailTo]">
             <ui:SendOutlookMail.Files>
               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
-                <InArgument x:TypeArguments="x:String">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_strExceptionFilePath" />
-                </InArgument>
+                <InArgument x:TypeArguments="x:String">[in_strExceptionFilePath]</InArgument>
               </scg:List>
             </ui:SendOutlookMail.Files>
           </ui:SendOutlookMail>
@@ -194,14 +198,15 @@
         </Sequence>
       </If.Else>
     </If>
-    <If Condition="[in_dtDuplicateRecords.RowCount&gt;0]" DisplayName="Check if dtDuplicate isnot nothing" sap:VirtualizedContainerService.HintSize="536.6666666666666,1150.6666666666667" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[in_dtDuplicateRecords.RowCount&gt;0]" DisplayName="Check if dtDuplicate isnot nothing" sap:VirtualizedContainerService.HintSize="536.6666666666666,1444.6666666666667" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="502.6666666666667,874" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="502.6666666666667,1168" sap2010:WorkflowViewState.IdRef="Sequence_8">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message: Sending email with Duplicate records" sap:VirtualizedContainerService.HintSize="440.6666666666667,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Warn" Message="[&quot; Sending email with Duplicate records&quot;]" />
           <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Invoke Code: Convert datatable to Html mail body" Code="' Arguments&#xA;' in_DataTable (DataTable): Input DataTable&#xA;' out_HtmlBody (String): Output HTML string&#xA;&#xA;' Initialize HTML string with basic table structure&#xA;Dim htmlTable As String = &quot;&lt;table border='1' style='border-collapse:collapse; width: 100%;'&gt;&quot;&#xA;' Add table header&#xA;htmlTable += &quot;&lt;thead style='background-color:#4CAF50; color:white;'&gt;&quot;&#xA;htmlTable += &quot;&lt;tr&gt;&quot;&#xA;For Each column As DataColumn In in_DataTable.Columns&#xA;    htmlTable += &quot;&lt;th style='padding:8px;'&gt;&quot; &amp; column.ColumnName &amp; &quot;&lt;/th&gt;&quot;&#xA;Next&#xA;htmlTable += &quot;&lt;/tr&gt;&quot;&#xA;htmlTable += &quot;&lt;/thead&gt;&quot;&#xA;&#xA;' Add table rows&#xA;htmlTable += &quot;&lt;tbody&gt;&quot;&#xA;For Each row As DataRow In in_DataTable.Rows&#xA;    htmlTable += &quot;&lt;tr&gt;&quot;&#xA;    For Each column As DataColumn In in_DataTable.Columns&#xA;        htmlTable += &quot;&lt;td style='padding:8px;'&gt;&quot; &amp; row(column).ToString() &amp; &quot;&lt;/td&gt;&quot;&#xA;    Next&#xA;    htmlTable += &quot;&lt;/tr&gt;&quot;&#xA;Next&#xA;htmlTable += &quot;&lt;/tbody&gt;&quot;&#xA;&#xA;' Close the table tag&#xA;htmlTable += &quot;&lt;/table&gt;&quot;&#xA;&#xA;' Assign the generated HTML to the output argument&#xA;out_HtmlBody = htmlTable&#xA;" DisplayName="Invoke Code: Convert datatable to Html mail body" sap:VirtualizedContainerService.HintSize="440.6666666666667,228" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
             <ui:InvokeCode.Arguments>
               <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DataTable">[in_dtDuplicateRecords]</InArgument>
@@ -227,8 +232,16 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
+          <Assign DisplayName="Assign: Duplicate sales order Mail subject" sap:VirtualizedContainerService.HintSize="440.6666666666667,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_7">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[ExMailSubject]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">SOP-RSK: Duplicate SOs in input</InArgument>
+            </Assign.Value>
+          </Assign>
           <ui:Comment sap:VirtualizedContainerService.HintSize="440.6666666666667,108" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// add cc in email as per requirement in_Config(&quot;Email_CC&quot;).ToString" />
-          <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Account="sourav.kumar1@linde.com" Body="[duplicateMailBody]" DisplayName="Send Outlook Mail Message: duplicate" sap:VirtualizedContainerService.HintSize="440.6666666666667,173.33333333333334" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[in_ExMailSubject]" To="[in_ExMailTo]">
+          <ui:SendOutlookMail Bcc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Account="sourav.kumar1@linde.com" Body="[duplicateMailBody]" Cc="[in_Config(&quot;ExceptionEmailTo&quot;).ToString]" DisplayName="Send Outlook Mail Message: duplicate" sap:VirtualizedContainerService.HintSize="440.6666666666667,173.33333333333334" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[ExMailSubject]" To="[in_ExMailTo]">
             <ui:SendOutlookMail.Files>
               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
             </ui:SendOutlookMail.Files>
@@ -245,9 +258,9 @@
         </Sequence>
       </If.Else>
     </If>
-    <If Condition="[in_dtUrgentDeliveries isnot Nothing]" DisplayName="If urgent deliveries are there" sap:VirtualizedContainerService.HintSize="536.6666666666666,1100" sap2010:WorkflowViewState.IdRef="If_3">
+    <If Condition="[in_dtUrgentDeliveries isnot Nothing]" DisplayName="If urgent deliveries are there" sap:VirtualizedContainerService.HintSize="536.6666666666666,1150.6666666666667" sap2010:WorkflowViewState.IdRef="If_3">
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="500,823.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_10">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="500,883.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_10">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="strUrgentDeliveryMailBody" />
             <Variable x:TypeArguments="x:String" Name="strdtUrgentDeliverieshtml" />
@@ -269,29 +282,14 @@
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeCode>
           <ui:ReadTextFile File="{x:Null}" Content="[strUrgentDeliveryMailBody]" DisplayName="Read Text File: Urgent delivery mail body" FileName="Data\Temp\UrgentDeliveryMailBody.txt" sap:VirtualizedContainerService.HintSize="438,114" sap2010:WorkflowViewState.IdRef="ReadTextFile_3" />
-          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="438,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_4">
-            <ui:CommentOut.Body>
-              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,276" sap2010:WorkflowViewState.IdRef="Sequence_12">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeCode ContinueOnError="{x:Null}" Code="// Function to convert DataTable to HTML table&#xA;public string ConvertDataTableToHTML(DataTable dt)&#xA;{&#xA;    string html = &quot;&lt;table border='1' cellpadding='5' cellspacing='0' style='border-collapse: collapse; width: 100%;'&gt;&quot;;&#xA;    &#xA;    // Add table headers&#xA;    html += &quot;&lt;tr style='background-color: #f2f2f2;'&gt;&quot;;&#xA;    foreach (DataColumn column in dt.Columns)&#xA;    {&#xA;        html += &quot;&lt;th&gt;&quot; + column.ColumnName + &quot;&lt;/th&gt;&quot;;&#xA;    }&#xA;    html += &quot;&lt;/tr&gt;&quot;;&#xA;    &#xA;    // Add table rows&#xA;    foreach (DataRow row in dt.Rows)&#xA;    {&#xA;        html += &quot;&lt;tr&gt;&quot;;&#xA;        foreach (DataColumn column in dt.Columns)&#xA;        {&#xA;            html += &quot;&lt;td&gt;&quot; + row[column].ToString() + &quot;&lt;/td&gt;&quot;;&#xA;        }&#xA;        html += &quot;&lt;/tr&gt;&quot;;&#xA;    }&#xA;    &#xA;    html += &quot;&lt;/table&gt;&quot;;&#xA;    return html;&#xA;}&#xA;&#xA;// Convert the input DataTable to an HTML string&#xA;string htmlString = ConvertDataTableToHTML(inputDataTable);" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="354,188" sap2010:WorkflowViewState.IdRef="InvokeCode_2" Language="CSharp">
-                  <ui:InvokeCode.Arguments>
-                    <InArgument x:TypeArguments="sd:DataTable" x:Key="inputDataTable">[in_dtUrgentDeliveries]</InArgument>
-                    <OutArgument x:TypeArguments="x:String" x:Key="htmlString">[strdtUrgentDeliverieshtml]</OutArgument>
-                  </ui:InvokeCode.Arguments>
-                </ui:InvokeCode>
-              </Sequence>
-            </ui:CommentOut.Body>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:CommentOut>
+          <Assign DisplayName="Assign: Sales order Urgent delivery" sap:VirtualizedContainerService.HintSize="438,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[ExMailSubject]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[in_Config("UrgentDeliveryMailSubject").ToString]</InArgument>
+            </Assign.Value>
+          </Assign>
           <Assign sap2010:Annotation.AnnotationText="Assign: Get the mail body agruments added to the mail body text object" DisplayName="Assign: Get the mail body agruments added to the mail body text object" sap:VirtualizedContainerService.HintSize="438,148" sap2010:WorkflowViewState.IdRef="Assign_5">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[strUrgentDeliveryMailBody]</OutArgument>
@@ -305,7 +303,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Account="sourav.kumar1@linde.com" Body="[strUrgentDeliveryMailBody]" DisplayName="Send urgent delivery request for manual handling" sap:VirtualizedContainerService.HintSize="438,173.33333333333334" sap2010:WorkflowViewState.IdRef="SendOutlookMail_3" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[in_ExMailSubject]" To="[in_ExMailTo]">
+          <ui:SendOutlookMail Bcc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Account="sourav.kumar1@linde.com" Body="[strUrgentDeliveryMailBody]" Cc="[in_Config(&quot;ExceptionEmailTo&quot;).ToString]" DisplayName="Send urgent delivery request for manual handling" sap:VirtualizedContainerService.HintSize="438,173.33333333333334" sap2010:WorkflowViewState.IdRef="SendOutlookMail_3" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[ExMailSubject]" To="[in_ExMailTo]">
             <ui:SendOutlookMail.Files>
               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
             </ui:SendOutlookMail.Files>
@@ -322,38 +320,5 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="536.6666666666666,76.66666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,403.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <umab:OutlookApplicationCard Account="sourav.kumar1@linde.com" AccountMismatchBehavior="UseDefaultEmailAccount" DisplayName="Use Desktop Outlook App" sap:VirtualizedContainerService.HintSize="450,315.3333333333333" sap2010:WorkflowViewState.IdRef="OutlookApplicationCard_1">
-            <umab:OutlookApplicationCard.Body>
-              <ActivityAction x:TypeArguments="um:IMailQuickHandle">
-                <ActivityAction.Argument>
-                  <DelegateInArgument x:TypeArguments="um:IMailQuickHandle" Name="Outlook" />
-                </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,104.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </Sequence>
-              </ActivityAction>
-            </umab:OutlookApplicationCard.Body>
-          </umab:OutlookApplicationCard>
-        </Sequence>
-      </ui:CommentOut.Body>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:CommentOut>
   </Sequence>
 </Activity>

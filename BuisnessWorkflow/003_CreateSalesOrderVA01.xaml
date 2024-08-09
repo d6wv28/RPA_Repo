@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1152,2009.333333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1212,5042</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>VA01_processing_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -141,7 +141,7 @@
       <x:Boolean x:Key="ShouldCollapseAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="003_Create_SalesOrderVA01" sap:VirtualizedContainerService.HintSize="757.3333333333334,1944.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="003_Create_SalesOrderVA01" sap:VirtualizedContainerService.HintSize="1222,4977.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strPONumber" />
       <Variable x:TypeArguments="x:String" Name="strDistributionChannel" />
@@ -165,7 +165,7 @@
         <x:Boolean x:Key="IsPinned">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MultipleAssign DisplayName="Multiple Assign: Get common arguments values to create Sales order" sap:VirtualizedContainerService.HintSize="695.3333333333334,364" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
+    <ui:MultipleAssign DisplayName="Multiple Assign: Get common arguments values to create Sales order" sap:VirtualizedContainerService.HintSize="1160,364" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_35">
@@ -240,7 +240,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <Assign DisplayName="Assign: get PO Number created" sap:VirtualizedContainerService.HintSize="695.3333333333334,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
+    <Assign DisplayName="Assign: get PO Number created" sap:VirtualizedContainerService.HintSize="1160,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[strPONumber]</OutArgument>
       </Assign.To>
@@ -253,7 +253,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="00_GetInputDateParsed - Invoke Workflow File (Utility_Workflows\00_GetInputDateParsed.xaml)" sap:VirtualizedContainerService.HintSize="695.3333333333334,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Utility_Workflows\00_GetInputDateParsed.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="00_GetInputDateParsed - Invoke Workflow File (Utility_Workflows\00_GetInputDateParsed.xaml)" sap:VirtualizedContainerService.HintSize="1160,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Utility_Workflows\00_GetInputDateParsed.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_strInputRequestedDeliveryDate">[strDeliveryDate]</InArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_FormatedDeliveryDate">[strDeliveryDate]</OutArgument>
@@ -265,8 +265,8 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <ui:LogMessage DisplayName="Log Message: Delivery date parsed" sap:VirtualizedContainerService.HintSize="695.3333333333334,57.333333333333336" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Parse delivery date is :&quot;+strDeliveryDate]" />
-    <TryCatch sap2010:Annotation.AnnotationText="Try  Initial entries in creating a Sales order Catch" DisplayName="Try  Initial entries in creating a Sales order Catch" sap:VirtualizedContainerService.HintSize="695.3333333333334,1108" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+    <ui:LogMessage DisplayName="Log Message: Delivery date parsed" sap:VirtualizedContainerService.HintSize="1160,86" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Parse delivery date is :&quot;+strDeliveryDate]" />
+    <TryCatch sap2010:Annotation.AnnotationText="Try  Initial entries in creating a Sales order Catch" DisplayName="Try  Initial entries in creating a Sales order Catch" sap:VirtualizedContainerService.HintSize="1160,4112" sap2010:WorkflowViewState.IdRef="TryCatch_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsPinned">True</x:Boolean>
@@ -275,13 +275,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: SAP Easy Access" sap:VirtualizedContainerService.HintSize="656.6666666666666,792" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="3a165d11-b382-4ccd-8c0b-51abdba6ec0c" Version="V2">
+        <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: SAP Easy Access" sap:VirtualizedContainerService.HintSize="1121.3333333333333,3796" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="3a165d11-b382-4ccd-8c0b-51abdba6ec0c" Version="V2">
           <uix:NApplicationCard.Body>
             <ActivityAction x:TypeArguments="x:Object">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Do Call Tcode VA01" sap:VirtualizedContainerService.HintSize="622.6666666666666,494.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <Sequence DisplayName="Do Call Tcode VA01" sap:VirtualizedContainerService.HintSize="1087.3333333333333,3498.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_2">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:Int32" Name="indexMaterialCode" />
                   <Variable x:TypeArguments="x:Boolean" Name="blnSOPattern" />
@@ -292,7 +292,7 @@
                     <x:Boolean x:Key="IsPinned">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence DisplayName="Sequence: Navigating to VA01 screen" sap:VirtualizedContainerService.HintSize="560.6666666666666,57.333333333333336" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                <Sequence DisplayName="Sequence: Navigating to VA01 screen" sap:VirtualizedContainerService.HintSize="1025.3333333333333,116.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_33">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -404,17 +404,22 @@
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NTypeInto>
                 </Sequence>
-                <Sequence DisplayName="Sequence Enter customer common details " sap:VirtualizedContainerService.HintSize="560.6666666666666,57.333333333333336" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                <Sequence DisplayName="Sequence Enter customer common details " sap:VirtualizedContainerService.HintSize="1025.3333333333333,2780" sap2010:WorkflowViewState.IdRef="Sequence_13">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="s:String[]" Name="array_DateFormats" />
+                    <Variable x:TypeArguments="x:String" Name="strFirstMaterial">
+                      <Variable.Default>
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </Variable.Default>
+                    </Variable>
                   </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into Customer nnumber Sold-to Party" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="954,254.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_6" InteractionMode="HardwareEvents" ScopeIdentifier="3a165d11-b382-4ccd-8c0b-51abdba6ec0c" Text="[strSoldToCustCode + &quot;[k(Enter)]&quot;]" Version="V3">
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into Customer nnumber Sold-to Party" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="963.3333333333334,254.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_6" InteractionMode="HardwareEvents" ScopeIdentifier="3a165d11-b382-4ccd-8c0b-51abdba6ec0c" Text="[strSoldToCustCode + &quot;[k(Enter)]&quot;]" Version="V3">
                     <uix:NTypeInto.Target>
                       <uix:TargetAnchorable DesignTimeRectangle="144, 181, 90, 20" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;sap id='usr/subSUBSCREEN_HEADER:SAPMV45A:4021/subPART-SUB:SAPMV45A:4701/ctxtKUAGV-KUNNR' /&gt;" FuzzySelectorArgument="&lt;sap id='usr/subSUBSCREEN_HEADER:SAPMV45A:4021/subPART-SUB:SAPMV45A:4701/ctxtKUAGV-KUNNR' /&gt;" Guid="e69c9e9a-5441-4bf5-8650-bd4851048f67" InformativeScreenshot="069669fc295c86af1bcce5024fe545cc.png" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Create Standard Order: Overview' /&gt;" SearchSteps="Selector" Version="V3" Visibility="Interactive" />
                     </uix:NTypeInto.Target>
@@ -425,7 +430,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NTypeInto>
-                  <uix:NCheckState DisplayName="Check App State 'Customer has'" sap:VirtualizedContainerService.HintSize="954,614" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="3a165d11-b382-4ccd-8c0b-51abdba6ec0c" Version="V3">
+                  <uix:NCheckState DisplayName="Check App State 'Customer has'" sap:VirtualizedContainerService.HintSize="963.3333333333334,574" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="3a165d11-b382-4ccd-8c0b-51abdba6ec0c" Version="V3">
                     <uix:NCheckState.IfExists>
                       <Sequence DisplayName="Target appears Perform click" sap:VirtualizedContainerService.HintSize="450,320.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_29">
                         <sap:WorkflowViewStateService.ViewState>
@@ -487,7 +492,100 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NCheckState>
-                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into PO No" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="954,254.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_7" InteractionMode="HardwareEvents" ScopeIdentifier="3a165d11-b382-4ccd-8c0b-51abdba6ec0c" Text="[strPONumber + &quot;[k(Enter)]&quot;]" Version="V3">
+                  <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click: For Item overview" sap:VirtualizedContainerService.HintSize="963.3333333333334,191.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3a165d11-b382-4ccd-8c0b-51abdba6ec0c" Timeout="10" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="148, 404, 175, 33" DesignTimeScaleFactor="1.5" FullSelectorArgument="&lt;sap id='usr/tabsTAXI_TABSTRIP_OVERVIEW/tabpT\02' /&gt;" FuzzySelectorArgument="&lt;sap id='usr/tabsTAXI_TABSTRIP_OVERVIEW/tabpT\02' check:text='Item Overview' /&gt;" Guid="f1481fcf-d938-4108-acdd-70c5e0b84a8f" ImageBase64="" InformativeScreenshot="aa0e7d32373f88df47ab42fbf0294b01.png" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Create Deliv.Free of Charge: Overview' /&gt;" SearchSteps="FuzzySelector" Version="V3" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target DesignTimeRectangle="324, 404, 140, 33" FullSelectorArgument="&lt;sap id='usr/tabsTAXI_TABSTRIP_OVERVIEW/tabpT\03' /&gt;" FuzzySelectorArgument="&lt;sap id='usr/tabsTAXI_TABSTRIP_OVERVIEW/tabpT\03' check:text='Item detail' /&gt;" ImageBase64="" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NClick>
+                  <uix:NGetText DisplayName="Get Text 'CTextField Material'" sap:VirtualizedContainerService.HintSize="963.3333333333334,191.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="3a165d11-b382-4ccd-8c0b-51abdba6ec0c" TextString="[strFirstMaterial]" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="169, 671, 241, 31" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;sap colTooltip='Material' id='usr/tabsTAXI_TABSTRIP_OVERVIEW/tabpT\02/ssubSUBSCREEN_BODY:SAPMV45A:4401/subSUBSCREEN_TC:SAPMV45A:4900/tblSAPMV45ATCTRL_U_ERF_AUFTRAG' tableRow='0' tableCol='1' /&gt;" FuzzySelectorArgument="&lt;sap colTooltip='Material' id='usr/tabsTAXI_TABSTRIP_OVERVIEW/tabpT\02/ssubSUBSCREEN_BODY:SAPMV45A:4401/subSUBSCREEN_TC:SAPMV45A:4900/tblSAPMV45ATCTRL_U_ERF_AUFTRAG' /&gt;" Guid="c68b45ed-ea30-42fb-bca0-af02344b1a2f" InformativeScreenshot="470dc3a36d411ad25109acde1fcdcd7b.png" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Create Deliv.Free of Charge: Overview' /&gt;" SearchSteps="Selector" Version="V3" Visibility="Interactive" />
+                    </uix:NGetText.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NGetText>
+                  <TryCatch DisplayName="Try Catch: Handle throw business rule exception when no material list found for customer" sap:VirtualizedContainerService.HintSize="963.3333333333334,898" sap2010:WorkflowViewState.IdRef="TryCatch_5">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <TryCatch.Try>
+                      <If Condition="[string.IsNullOrEmpty(strFirstMaterial)]" DisplayName="Check If no material list exist: Throw system exception to catch Screenshot" sap:VirtualizedContainerService.HintSize="450,626.6666666666666" sap2010:WorkflowViewState.IdRef="If_1">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,382" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:LogMessage DisplayName="Log Message: No material list found for the customer" sap:VirtualizedContainerService.HintSize="354,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Error" Message="[&quot;No material list found for the customer&quot;]">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:LogMessage>
+                            <Throw DisplayName="Throw: No material list SE" Exception="[new BusinessRuleException(&quot;No material list found for the customer:&quot;+strSoldToCustCode) with {.source=&quot;CreateSalesOrderVA01&quot;}]" sap:VirtualizedContainerService.HintSize="354,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_4">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </Throw>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,104.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="530,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_11">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ActivityAction x:TypeArguments="ui:BusinessRuleException">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
+                          </ActivityAction.Argument>
+                          <Rethrow DisplayName="Rethrow: BE for no material list" sap:VirtualizedContainerService.HintSize="200,25.333333333333332" sap2010:WorkflowViewState.IdRef="Rethrow_5" />
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                  </TryCatch>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into PO No" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="963.3333333333334,254.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_7" InteractionMode="HardwareEvents" ScopeIdentifier="3a165d11-b382-4ccd-8c0b-51abdba6ec0c" Text="[strPONumber + &quot;[k(Enter)]&quot;]" Version="V3">
                     <uix:NTypeInto.Target>
                       <uix:TargetAnchorable CvElementArea="143, 225, 252, 21" CvType="InputBox" DesignTimeRectangle="144, 225, 251, 20" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;sap id='usr/subSUBSCREEN_HEADER:SAPMV45A:4021/txtVBKD-BSTKD' /&gt;" FuzzySelectorArgument="&lt;sap id='usr/subSUBSCREEN_HEADER:SAPMV45A:4021/txtVBKD-BSTKD' /&gt;" Guid="ba7901ee-adff-4e5f-809e-549724470d78" InformativeScreenshot="94f7de84dcbe9775e631af0c317532d8.png" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Create Standard Order: Overview' /&gt;" SearchSteps="Selector" Version="V3" Visibility="Interactive" />
                     </uix:NTypeInto.Target>
@@ -498,7 +596,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NTypeInto>
-                  <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Convert.ToDateTime(strDeliveryDate).ToString(&quot;dd.MM.yyyy&quot;)" ClickBeforeMode="None" DisplayName="Type Into Deliverydate" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="954,293.3333333333333" sap2010:WorkflowViewState.IdRef="NTypeInto_9" InteractionMode="HardwareEvents" ScopeIdentifier="3a165d11-b382-4ccd-8c0b-51abdba6ec0c" Text="[strDeliveryDate  + &quot;[k(Tab)]&quot;]" Version="V3">
+                  <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Convert.ToDateTime(strDeliveryDate).ToString(&quot;dd.MM.yyyy&quot;)" ClickBeforeMode="None" DisplayName="Type Into Deliverydate" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="963.3333333333334,293.3333333333333" sap2010:WorkflowViewState.IdRef="NTypeInto_9" InteractionMode="HardwareEvents" ScopeIdentifier="3a165d11-b382-4ccd-8c0b-51abdba6ec0c" Text="[strDeliveryDate  + &quot;[k(Tab)]&quot;]" Version="V3">
                     <uix:NTypeInto.Target>
                       <uix:TargetAnchorable CvElementArea="199, 313, 78, 21" CvType="InputBox" DesignTimeRectangle="200, 313, 76, 20" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;sap id='usr/tabsTAXI_TABSTRIP_OVERVIEW/tabpT\02/ssubSUBSCREEN_BODY:SAPMV45A:4401/ctxtRV45A-KETDAT' /&gt;" FuzzySelectorArgument="&lt;sap id='usr/tabsTAXI_TABSTRIP_OVERVIEW/tabpT\02/ssubSUBSCREEN_BODY:SAPMV45A:4401/ctxtRV45A-KETDAT' /&gt;" Guid="7485219e-136e-429c-8799-a217f5c95009" InformativeScreenshot="d6004d1cc056bd10ddc5bfd68717a96e.png" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Create Standard Order: Overview' /&gt;" SearchSteps="Selector" Version="V3" Visibility="Interactive" />
                     </uix:NTypeInto.Target>
@@ -511,7 +609,7 @@
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NTypeInto>
                 </Sequence>
-                <TryCatch sap2010:Annotation.AnnotationText="Try Catch: If exception thrown while entering Sales order details complete customer request would be marked =Failed" DisplayName="Try Catch: If execption thrown while entering Sales order details complete customer request would be marked =Failed" sap:VirtualizedContainerService.HintSize="560.6666666666666,289.3333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                <TryCatch sap2010:Annotation.AnnotationText="Try Catch: If exception thrown while entering Sales order details complete customer request would be marked =Failed" DisplayName="Try Catch: If execption thrown while entering Sales order details complete customer request would be marked =Failed" sap:VirtualizedContainerService.HintSize="1025.3333333333333,511.3333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -519,7 +617,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <TryCatch.Try>
-                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="BuisnessWorkflow\003a_EnterQuantityForMaterials.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,175.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="BuisnessWorkflow\003a_EnterQuantityForMaterials.xaml">
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="BuisnessWorkflow\003a_EnterQuantityForMaterials.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,178" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="BuisnessWorkflow\003a_EnterQuantityForMaterials.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <InArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)" x:Key="in_CustomerSalesOrderRequest">[in_CustomerRequestQuequeItems]</InArgument>
                         <OutArgument x:TypeArguments="x:String" x:Key="out_strOrderNo">[out_strOrderNo]</OutArgument>
@@ -594,7 +692,7 @@
         </uix:NApplicationCard>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="661.3333333333334,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1120.6666666666667,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -605,16 +703,16 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Throw DisplayName="Throw: System exception" Exception="[exception]" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Throw_3">
+            <Rethrow sap2010:Annotation.AnnotationText="Rethrow: SE in Sales Order common entries" DisplayName="Rethrow: SE in Sales Order common entries" sap:VirtualizedContainerService.HintSize="200,70.66666666666667" sap2010:WorkflowViewState.IdRef="Rethrow_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-            </Throw>
+            </Rethrow>
           </ActivityAction>
         </Catch>
-        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="661.3333333333334,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="1120.6666666666667,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>

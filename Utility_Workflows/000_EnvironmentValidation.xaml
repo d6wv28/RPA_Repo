@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1152,1986</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1152,1855.3333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Folder_Structure_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -99,7 +99,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Create directory for Bot Input and OUtput folder structure, Where parent folder can be a shared drive Folder location&#xA;&#xA;Main Folder: SOP_RSK&#xA;Input Folder: SOP_RSK/BatchRun/Input&#xA;Output Folder:SOP_RSK/BatchRun/Output&#xA;Processed folder: SOP_RSK/BatchRun/Processed&#xA;SOP_RSK/Exception: SOP_RSK/BatchRun/Exception" DisplayName="Create Bot Directory: First run" sap:VirtualizedContainerService.HintSize="512,1921.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Create directory for Bot Input and OUtput folder structure, Where parent folder can be a shared drive Folder location&#xA;&#xA;Main Folder: SOP_RSK&#xA;Input Folder: SOP_RSK/BatchRun/Input&#xA;Output Folder:SOP_RSK/BatchRun/Output&#xA;" DisplayName="Create Bot Directory: First run" sap:VirtualizedContainerService.HintSize="512,1790.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="isRSKDayFolderExist" />
       <Variable x:TypeArguments="x:String" Name="BatchRun" />
@@ -126,7 +126,7 @@
       </Assign.Value>
     </Assign>
     <ui:FolderExistsX DisplayName="Folder Exists: Get Day Folder " Exists="[isRSKDayFolderExist]" sap:VirtualizedContainerService.HintSize="450,168.66666666666666" sap2010:WorkflowViewState.IdRef="FolderExistsX_1" Path="[TodayFolderPath]" />
-    <If Condition="[isRSKDayFolderExist=False]" DisplayName="If: Check for current folder stucture " sap:VirtualizedContainerService.HintSize="450,1192" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[isRSKDayFolderExist=False]" DisplayName="If: Check for current folder stucture " sap:VirtualizedContainerService.HintSize="450,1078" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -134,7 +134,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,774" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,660" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -143,7 +143,6 @@
           <ui:LogMessage DisplayName="Log Message: Creating new folder" sap:VirtualizedContainerService.HintSize="354,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Creating a new Folder Structure for the month : &quot;+TodayFolderPath]" />
           <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Input Folder" sap:VirtualizedContainerService.HintSize="354,114" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[path.Combine(TodayFolderPath,&quot;Input&quot;)]" />
           <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Output Folder" sap:VirtualizedContainerService.HintSize="354,114" sap2010:WorkflowViewState.IdRef="CreateDirectory_3" Path="[path.Combine(TodayFolderPath,&quot;Output&quot;)]" />
-          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Exception Folder" sap:VirtualizedContainerService.HintSize="354,114" sap2010:WorkflowViewState.IdRef="CreateDirectory_4" Path="[path.Combine(TodayFolderPath,&quot;Exception&quot;)]" />
           <ui:LogMessage DisplayName="Log Message: folder stucture creation Complete " sap:VirtualizedContainerService.HintSize="354,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Folder structure created for the Day run : &quot;+TodayFolderPath]" />
         </Sequence>
       </If.Then>

@@ -1,0 +1,22 @@
+<html>
+  <body>
+    <p>Dear Request sender,</p>
+    <br>
+    <p>Please find attached the consolidated sales order tracker of your request in current <Batch> run. This file contains a summary of all processed sales orders for the day.</p>
+    <p>The tracker includes the following details:</p>
+    <ul>
+      <li>If successful, sales order no</li>
+      <li>If Successful, Failure Reason</li>
+      <li>Request sender Email Address</li>
+      <li>Batch run details</li>
+      <li>Processed on</li>
+      <li>Status (Successful, Failed)</li>
+    </ul>
+    <br>
+    <p>Please review the attachment for a comprehensive update on today's sales order processing.</p>
+    <br>
+    Best regards,<br>
+    PGP RPA BOT Services<br>
+    Note- This is System generated mail.<br>
+  </body>
+</html>

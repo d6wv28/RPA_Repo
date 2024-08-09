@@ -130,17 +130,14 @@
             <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts: Ctrl+F8 to reset the material entries" sap:VirtualizedContainerService.HintSize="530,217.33333333333334" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][d(ctrl)][k(f8)][u(ctrl)][u(hk)]" Version="V3" />
             <ucas:ReadStatusbar ContinueOnError="{x:Null}" MessageData="{x:Null}" MessageId="{x:Null}" MessageNumber="{x:Null}" MessageType="{x:Null}" DisplayName="Read Status Bar 'StatusPane Document'" sap:VirtualizedContainerService.HintSize="530,303.3333333333333" sap2010:WorkflowViewState.IdRef="ReadStatusbar_1" MessageText="[DocumentIsCompleteText]">
               <ucas:ReadStatusbar.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="800b10ca-a9ee-4fb8-87d5-5ef99f6e5ec4" InformativeScreenshot="961a5028e61716bbad2399db86b43d3b" Selector="&lt;sap id='sbar/pane[0]' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="800b10ca-a9ee-4fb8-87d5-5ef99f6e5ec4" InformativeScreenshot="961a5028e61716bbad2399db86b43d3b" Selector="&lt;sap id='sbar/pane[0]' /&gt;" WaitForReady="INTERACTIVE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
                 </ui:Target>
               </ucas:ReadStatusbar.Target>
             </ucas:ReadStatusbar>
-            <If Condition="[DocumentIsCompleteText.ToLower is &quot;document is complete&quot;]" DisplayName="If Document is Complete is in statusbar" sap:VirtualizedContainerService.HintSize="530,557.3333333333334" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[DocumentIsCompleteText.ToLower.Trim.Equals(&quot;document is complete&quot;)]" DisplayName="If Document is Complete is in statusbar" sap:VirtualizedContainerService.HintSize="530,557.3333333333334" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
                 <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,196" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>

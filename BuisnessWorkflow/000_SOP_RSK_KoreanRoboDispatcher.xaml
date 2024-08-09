@@ -1,11 +1,11 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="_001_GetSORequestFromEmail" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:uasc="clr-namespace:UiPath.Activities.System.Collections;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:um="clr-namespace:UiPath.Mail;assembly=UiPath.Mail.Activities" xmlns:umab="clr-namespace:UiPath.Mail.Activities.Business;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="_001_GetSORequestFromEmail" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:um="clr-namespace:UiPath.Mail;assembly=UiPath.Mail.Activities" xmlns:umab="clr-namespace:UiPath.Mail.Activities.Business;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1335.3333333333333,8768</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1334,11318.666666666666</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_001_GetSORequestFromEmail_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -74,6 +74,8 @@
       <x:String>System.Data.Common</x:String>
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Globalization</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -157,7 +159,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="_001_GetSORequestFromEmail" sap:VirtualizedContainerService.HintSize="1345.3333333333333,6058.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="_001_GetSORequestFromEmail" sap:VirtualizedContainerService.HintSize="1344,11254" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strEmailFrom" />
       <Variable x:TypeArguments="x:String" Name="strInputEmailFolder" />
@@ -175,7 +177,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MultipleAssign DisplayName="Multiple Assign: get argument values" sap:VirtualizedContainerService.HintSize="1283.3333333333333,333.3333333333333" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Multiple Assign: get argument values" sap:VirtualizedContainerService.HintSize="1282,333.3333333333333" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -237,13 +239,13 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility_Workflows\000_GetBatchRun.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="1283.3333333333333,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" Level="Info" LogEntry="[UiPath.Core.Activities.LogEntryType.OnlyInvocation]" LogExit="[UiPath.Core.Activities.LogExitType.OnlySuccessfulReturn]" UnSafe="False" WorkflowFileName="Utility_Workflows\000_GetBatchRun.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility_Workflows\000_GetBatchRun.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="1282,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" Level="Info" LogEntry="[UiPath.Core.Activities.LogEntryType.OnlyInvocation]" LogExit="[UiPath.Core.Activities.LogExitType.OnlySuccessfulReturn]" UnSafe="False" WorkflowFileName="Utility_Workflows\000_GetBatchRun.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_BatchRun" />
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <TryCatch sap2010:Annotation.AnnotationText="Try to Sales order request to the Queue and Catch if Outlook excpection is hrown." DisplayName="Try to Sales order request to the Queue and Catch if Outlook excpection is hrown." sap:VirtualizedContainerService.HintSize="1283.3333333333333,5260" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch sap2010:Annotation.AnnotationText="Try to Sales order request to the Queue and Catch if Outlook excpection is hrown." DisplayName="Try to Sales order request to the Queue and Catch if Outlook excpection is hrown." sap:VirtualizedContainerService.HintSize="1282,10455.333333333334" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -252,19 +254,19 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <umab:OutlookApplicationCard Account="strEmailFrom" AccountMismatchBehavior="UseDefaultEmailAccount" DisplayName="Use Desktop Outlook App get emails with SO details in table in mail body" sap:VirtualizedContainerService.HintSize="1244.6666666666667,4958" sap2010:WorkflowViewState.IdRef="OutlookApplicationCard_2">
+        <umab:OutlookApplicationCard Account="strEmailFrom" AccountMismatchBehavior="UseDefaultEmailAccount" DisplayName="Use Desktop Outlook App get emails with SO details in table in mail body" sap:VirtualizedContainerService.HintSize="838.6666666666666,10130" sap2010:WorkflowViewState.IdRef="OutlookApplicationCard_2">
           <umab:OutlookApplicationCard.Body>
             <ActivityAction x:TypeArguments="um:IMailQuickHandle">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="um:IMailQuickHandle" Name="Outlook" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Do save and open for data scraping" sap:VirtualizedContainerService.HintSize="1210.6666666666667,4770" sap2010:WorkflowViewState.IdRef="Sequence_32">
+              <Sequence DisplayName="Do save and open for data scraping" sap:VirtualizedContainerService.HintSize="804.6666666666666,9942" sap2010:WorkflowViewState.IdRef="Sequence_32">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <umab:ForEachEmailX MailFilter="{x:Null}" DisplayName="For Each Email: in 'SOP RSK Orders' mail folder" sap:VirtualizedContainerService.HintSize="1148.6666666666667,4682" sap2010:WorkflowViewState.IdRef="ForEachEmailX_3" IncludeSubfolders="False" Mails="[Outlook.Folder(EmailFolder)]" NumberOfEmailsLimit="0" RetrieveAttachments="False" UnreadOnly="False" WithAttachmentsOnly="False">
+                <umab:ForEachEmailX MailFilter="{x:Null}" DisplayName="For Each Email: in 'SOP RSK Orders' mail folder" sap:VirtualizedContainerService.HintSize="742.6666666666666,9854" sap2010:WorkflowViewState.IdRef="ForEachEmailX_3" IncludeSubfolders="False" Mails="[Outlook.Folder(EmailFolder)]" NumberOfEmailsLimit="0" RetrieveAttachments="False" UnreadOnly="False" WithAttachmentsOnly="False">
                   <umab:ForEachEmailX.Body>
                     <ActivityAction x:TypeArguments="snm:MailMessage, x:Int32">
                       <ActivityAction.Argument1>
@@ -273,7 +275,7 @@
                       <ActivityAction.Argument2>
                         <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
                       </ActivityAction.Argument2>
-                      <Sequence DisplayName="Do save email and scrape the table" sap:VirtualizedContainerService.HintSize="1114.6666666666667,4387.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                      <Sequence DisplayName="Do save email and scrape the table" sap:VirtualizedContainerService.HintSize="708.6666666666666,9559.333333333334" sap2010:WorkflowViewState.IdRef="Sequence_3">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:String" Name="excelfilepath" />
                           <Variable x:TypeArguments="sd:DataTable" Default="[new DataTable]" Name="dt_DuplicateOrders" />
@@ -281,6 +283,7 @@
                           <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="dictSOPRSKsalesOrders" />
                           <Variable x:TypeArguments="sd:DataTable" Default="[new DataTable]" Name="dt_UniqueFromDuplicatesSOs" />
                           <Variable x:TypeArguments="sd:DataTable" Default="[new DataTable]" Name="dt_UrgentDeliveries" />
+                          <Variable x:TypeArguments="x:String" Name="strConsolidatedMailBody" />
                         </Sequence.Variables>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -288,29 +291,39 @@
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Assign DisplayName="Assign: get mail message filename" sap:VirtualizedContainerService.HintSize="724,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+                        <Assign DisplayName="Assign: get mail message filename" sap:VirtualizedContainerService.HintSize="646.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:String">[CurrentEMailMessageFilename]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
                             <InArgument x:TypeArguments="x:String">[path.Combine(TodayFolderPath,strInputEmailFolder,CurrentMail.From.User.ToString+"_"+DateTime.Now.ToString("hhmmss")+".htm")]</InArgument>
                           </Assign.Value>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
                         </Assign>
-                        <ui:SaveOutlookMailMessage sap2010:Annotation.AnnotationText="The file to be opened in chrome application" DisplayName="Save Email in html format with SO Request in table" FileName="[path.GetFileName(CurrentEMailMessageFilename)]" Folder="[path.GetDirectoryName(CurrentEMailMessageFilename)]" sap:VirtualizedContainerService.HintSize="724,394.6666666666667" sap2010:WorkflowViewState.IdRef="SaveOutlookMailMessage_1" MailMessage="[CurrentMail]" ReplaceExisting="True" SaveAsType="Html">
+                        <ui:SaveOutlookMailMessage sap2010:Annotation.AnnotationText="The file to be opened in chrome application" DisplayName="Save Email in html format with SO Request in table" FileName="[path.GetFileName(CurrentEMailMessageFilename)]" Folder="[path.GetDirectoryName(CurrentEMailMessageFilename)]" sap:VirtualizedContainerService.HintSize="646.6666666666666,131.33333333333334" sap2010:WorkflowViewState.IdRef="SaveOutlookMailMessage_1" MailMessage="[CurrentMail]" ReplaceExisting="True" SaveAsType="Html">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:SaveOutlookMailMessage>
-                        <ui:LogMessage sap2010:Annotation.AnnotationText="Log Message: Mail message file save in the RSK_SOP\Batch_Run\Input Folder" DisplayName="Log Message: Mail message file save in the RSK_SOP\Batch_Run\Input Folder" sap:VirtualizedContainerService.HintSize="1052.6666666666667,222" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Mail message file saved in the&quot;+Path.GetDirectoryName(CurrentEMailMessageFilename)]">
+                        <ui:LogMessage sap2010:Annotation.AnnotationText="Log Message: Mail message file save in the RSK_SOP\Batch_Run\Input Folder" DisplayName="Log Message: Mail message file save in the RSK_SOP\Batch_Run\Input Folder" sap:VirtualizedContainerService.HintSize="646.6666666666666,148" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Mail message file saved in the&quot;+Path.GetDirectoryName(CurrentEMailMessageFilename)]">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:LogMessage>
-                        <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" ContinueOnError="True" DisplayName="Use Browser Chrome: PGP Team Emails" sap:VirtualizedContainerService.HintSize="1052.6666666666667,514.6666666666666" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="54315e1e-74d1-4bc0-8815-8afc30525c1d" Timeout="1" Version="V2">
+                        <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" ContinueOnError="True" DisplayName="Use Browser Chrome: PGP Team Emails" sap:VirtualizedContainerService.HintSize="646.6666666666666,86" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="54315e1e-74d1-4bc0-8815-8afc30525c1d" Timeout="1" Version="V2">
                           <uix:NApplicationCard.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
@@ -332,110 +345,86 @@
                           </uix:NApplicationCard.TargetApp>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </uix:NApplicationCard>
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="BuisnessWorkflow\001_ParsingTableInMailBody.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="1052.6666666666667,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" Level="Info" LogEntry="[UiPath.Core.Activities.LogEntryType.OnlyInvocation]" LogExit="[UiPath.Core.Activities.LogExitType.OnlySuccessfulReturn]" UnSafe="False" WorkflowFileName="BuisnessWorkflow\001_ParsingTableInMailBody.xaml">
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="BuisnessWorkflow\001_ParsingTableInMailBody.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="646.6666666666666,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" Level="Info" LogEntry="[UiPath.Core.Activities.LogEntryType.OnlyInvocation]" LogExit="[UiPath.Core.Activities.LogExitType.OnlySuccessfulReturn]" UnSafe="False" WorkflowFileName="BuisnessWorkflow\001_ParsingTableInMailBody.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="x:String" x:Key="in_CurrentEmailFilepath">[CurrentEMailMessageFilename]</InArgument>
                             <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtSOPRSKData">[dt_RSKSORequest]</OutArgument>
                             <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
                         </ui:InvokeWorkflowFile>
-                        <ui:CommentOut DisplayName="Append mails" sap:VirtualizedContainerService.HintSize="452.6666666666667,366.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_11">
-                          <ui:CommentOut.Body>
-                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,286.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                        <ui:FilterDataTable sap2010:Annotation.AnnotationText="Filter Data Table: Input table if any blank row details" DataTable="[dt_RSKSORequest]" DisplayName="Filter Data Table: Input table if any blank row details" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="646.6666666666666,226.66666666666666" sap2010:WorkflowViewState.IdRef="FilterDataTable_13" OutputDataTable="[dt_RSKSORequest]" SelectColumnsMode="Remove">
+                          <ui:FilterDataTable.Filters>
+                            <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                              <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EMPTY">
+                                <ui:FilterOperationArgument.Column>
+                                  <InArgument x:TypeArguments="x:Int32">[1]</InArgument>
+                                </ui:FilterOperationArgument.Column>
+                              </ui:FilterOperationArgument>
+                              <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EMPTY">
+                                <ui:FilterOperationArgument.Column>
+                                  <InArgument x:TypeArguments="x:Int32">[3]</InArgument>
+                                </ui:FilterOperationArgument.Column>
+                              </ui:FilterOperationArgument>
+                              <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EMPTY">
+                                <ui:FilterOperationArgument.Column>
+                                  <InArgument x:TypeArguments="x:Int32">[9]</InArgument>
+                                </ui:FilterOperationArgument.Column>
+                              </ui:FilterOperationArgument>
+                            </scg:List>
+                          </ui:FilterDataTable.Filters>
+                          <ui:FilterDataTable.SelectColumns>
+                            <scg:List x:TypeArguments="InArgument" Capacity="4">
+                              <x:Null />
+                            </scg:List>
+                          </ui:FilterDataTable.SelectColumns>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:FilterDataTable>
+                        <If sap2010:Annotation.AnnotationText="check If Allow Dup column exist, If not add column as Allow Dup" Condition="[Not(dt_RSKSORequest.Columns.Contains(&quot;Allow Dup&quot;))]" DisplayName="check If Allow Dup column exist, If not add column as Allow Dup" sap:VirtualizedContainerService.HintSize="646.6666666666666,936.6666666666666" sap2010:WorkflowViewState.IdRef="If_2">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,478.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_17">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <uasc:AppendItemToCollection x:TypeArguments="snm:MailMessage" sap2010:Annotation.AnnotationText="Append Sales order email to Global variable list of mail" Collection="[sopRskMails]" DisplayName="Append Sales order email to Global variable list of mail" sap:VirtualizedContainerService.HintSize="354,198.66666666666666" sap2010:WorkflowViewState.IdRef="AppendItemToCollection`1_1">
-                                <uasc:AppendItemToCollection.Items>
-                                  <scg:List x:TypeArguments="InArgument(snm:MailMessage)" Capacity="4">
-                                    <InArgument x:TypeArguments="snm:MailMessage">[CurrentMail]</InArgument>
-                                  </scg:List>
-                                </uasc:AppendItemToCollection.Items>
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                              </uasc:AppendItemToCollection>
+                              <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Allow Dup" DataTable="[dt_RSKSORequest]" DisplayName="Add Data Column= Allow Dup" sap:VirtualizedContainerService.HintSize="354,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" />
+                              <ui:LogMessage DisplayName="Log Message:&quot;'Allow Dup' data column added in RSK Sales order input for order request from:&quot;+CurrentMail.From.ToString" sap:VirtualizedContainerService.HintSize="354,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;'Allow Dup' data column added in RSK Sales order input for order request from:&quot;+CurrentMail.From.ToString]" />
                             </Sequence>
-                          </ui:CommentOut.Body>
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                        </ui:CommentOut>
-                        <ui:CommentOut DisplayName="Comment Out mail details" sap:VirtualizedContainerService.HintSize="1052.6666666666667,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_5">
-                          <ui:CommentOut.Body>
-                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="540.6666666666666,638.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,255.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_18">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:MultipleAssign DisplayName="Multiple Assign: get SOP RSK Transaction data created" sap:VirtualizedContainerService.HintSize="478.6666666666667,210.66666666666666" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
-                                <ui:MultipleAssign.AssignOperations>
-                                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
-                                      <ui:AssignOperation.To>
-                                        <OutArgument x:TypeArguments="x:Object">[dataRow("EmailFrom")]</OutArgument>
-                                      </ui:AssignOperation.To>
-                                      <ui:AssignOperation.Value>
-                                        <InArgument x:TypeArguments="x:Object">[CurrentMail.From]</InArgument>
-                                      </ui:AssignOperation.Value>
-                                    </ui:AssignOperation>
-                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
-                                      <ui:AssignOperation.To>
-                                        <OutArgument x:TypeArguments="x:Object">[dataRow("EmailFilepath")]</OutArgument>
-                                      </ui:AssignOperation.To>
-                                      <ui:AssignOperation.Value>
-                                        <InArgument x:TypeArguments="x:Object">[CurrentEMailMessageFilename]</InArgument>
-                                      </ui:AssignOperation.Value>
-                                    </ui:AssignOperation>
-                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
-                                      <ui:AssignOperation.To>
-                                        <OutArgument x:TypeArguments="x:Object">[dataRow("EmailSubject")]</OutArgument>
-                                      </ui:AssignOperation.To>
-                                      <ui:AssignOperation.Value>
-                                        <InArgument x:TypeArguments="x:Object">[CurrentMail.Subject.ToString.Replace(" ","").Replace(":","")]</InArgument>
-                                      </ui:AssignOperation.Value>
-                                    </ui:AssignOperation>
-                                  </scg:List>
-                                </ui:MultipleAssign.AssignOperations>
-                              </ui:MultipleAssign>
-                              <ui:AddDataRow ArrayRow="{x:Null}" sap2010:Annotation.AnnotationText="Add Data Row to out_dtRSKSORequest for processing" DataRow="[dataRow]" DataTable="[dt_RSKSORequest]" DisplayName="Add Data Row to out_dtRSKSORequest for processing" sap:VirtualizedContainerService.HintSize="478.6666666666667,119.33333333333333" sap2010:WorkflowViewState.IdRef="AddDataRow_2">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                              </ui:AddDataRow>
-                              <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item SO data to the RSKSalesOrder Queue" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="334,198" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="SOP_RSK_Customers">
-                                <ui:AddQueueItem.ItemInformation>
-                                  <InArgument x:TypeArguments="snm:MailMessage" x:Key="mail">[CurrentMail]</InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="excelfilepath">[excelfilepath]</InArgument>
-                                </ui:AddQueueItem.ItemInformation>
-                              </ui:AddQueueItem>
+                              <ui:LogMessage DisplayName="Log Message:&quot;'Allow Dup' data column already exist in RSK Sales order input for order request from:&quot;+CurrentMail.From.ToString" sap:VirtualizedContainerService.HintSize="354,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;'Allow Dup' data column already exist in RSK Sales order input for order request from:&quot;+CurrentMail.From.ToString]" />
                             </Sequence>
-                          </ui:CommentOut.Body>
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                        </ui:CommentOut>
-                        <If sap2010:Annotation.AnnotationText="check If Allow Dup column exist, If not add column as Allow Dup" Condition="[Not(dt_RSKSORequest.Columns.Contains(&quot;Allow Dup&quot;))]" DisplayName="check If Allow Dup column exist, If not add column as Allow Dup" sap:VirtualizedContainerService.HintSize="724,119.33333333333333" sap2010:WorkflowViewState.IdRef="If_2">
+                          </If.Else>
+                        </If>
+                        <If sap2010:Annotation.AnnotationText="check If Request Sender column exist, If not add column " Condition="[Not(dt_RSKSORequest.Columns.Contains(&quot;Request Sender&quot;))]" DisplayName="check If Request Sender column exist, If not add column " sap:VirtualizedContainerService.HintSize="646.6666666666666,148" sap2010:WorkflowViewState.IdRef="If_11">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -444,60 +433,28 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <If.Then>
-                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,475.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,478.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_94">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Allow Dup" DataTable="[dt_RSKSORequest]" DisplayName="Add Data Column= Allow Dup" sap:VirtualizedContainerService.HintSize="354,221.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" />
-                              <ui:LogMessage DisplayName="Log Message:&quot;'Allow Dup' data column added in RSK Sales order input for order request from:&quot;+CurrentMail.From.ToString" sap:VirtualizedContainerService.HintSize="354,166" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;'Allow Dup' data column added in RSK Sales order input for order request from:&quot;+CurrentMail.From.ToString]" />
+                              <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Request Sender" DataTable="[dt_RSKSORequest]" DisplayName="Add Data Column= Request Sender" sap:VirtualizedContainerService.HintSize="354,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_3" />
+                              <ui:LogMessage DisplayName="Log Message:&quot;Request Sender' data column added in RSK Sales order input for order request from:&quot;+CurrentMail.From.ToString" sap:VirtualizedContainerService.HintSize="354,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;'Request Sender' data column added in RSK Sales order input for order request from:&quot;+CurrentMail.From.ToString]" />
                             </Sequence>
                           </If.Then>
                           <If.Else>
-                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,254" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,255.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_95">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:LogMessage DisplayName="Log Message:&quot;'Allow Dup' data column already exist in RSK Sales order input for order request from:&quot;+CurrentMail.From.ToString" sap:VirtualizedContainerService.HintSize="354,166" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;'Allow Dup' data column already exist in RSK Sales order input for order request from:&quot;+CurrentMail.From.ToString]" />
+                              <ui:LogMessage DisplayName="Log Message:&quot;'Request Sender' data column already exist in RSK Sales order input for order request from:&quot;+CurrentMail.From.ToString" sap:VirtualizedContainerService.HintSize="354,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[&quot;'Request Sender' data column already exist in RSK Sales order input for order request from:&quot;+CurrentMail.From.ToString]" />
                             </Sequence>
                           </If.Else>
                         </If>
-                        <ui:CommentOut DisplayName="Comment Out_unique" sap:VirtualizedContainerService.HintSize="724,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_12">
-                          <ui:CommentOut.Body>
-                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,381.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_89">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <Assign DisplayName="Assign- Get SOP RSK with specific headers" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_9">
-                                <Assign.To>
-                                  <OutArgument x:TypeArguments="sd:DataTable">[dt_RSKSORequest]</OutArgument>
-                                </Assign.To>
-                                <Assign.Value>
-                                  <InArgument x:TypeArguments="sd:DataTable">[dt_RSKSORequest.defaultView.totable(False,{"Order type","Sales Office","SOLD to Party","Material","Material Description","Quantity","UOM","Date requested","Order Reason","Unloading Point","Allow Dup"})]</InArgument>
-                                </Assign.Value>
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                              </Assign>
-                              <ui:Comment DisplayName="Comment get definite columns" sap:VirtualizedContainerService.HintSize="434,176" sap2010:WorkflowViewState.IdRef="Comment_2" Text="Get Unique Rows from dtSOPRSKData&#xA;dtRSKSORequest.DefaultView.ToTable(true,{&quot;Order type&quot;,&quot;Sales Office&quot;,&quot;SOLD to Party&quot;,&quot;Material&quot;,&quot;Material Description&quot;,&quot;Quantity&quot;,&quot;UOM&quot;,&quot;Date requested&quot;,&quot;Order Reason&quot;,&quot;Allow Dup&quot;})" />
-                            </Sequence>
-                          </ui:CommentOut.Body>
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                        </ui:CommentOut>
-                        <Assign DisplayName="Assign: Get all Unique record from input Sales order table" sap:VirtualizedContainerService.HintSize="724,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
+                        <Assign DisplayName="Assign: Get all Unique record from input Sales order table" sap:VirtualizedContainerService.HintSize="646.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
                           <Assign.To>
                             <OutArgument x:TypeArguments="sd:DataTable">[dt_UniqueRecords]</OutArgument>
                           </Assign.To>
@@ -505,7 +462,7 @@
                             <InArgument x:TypeArguments="sd:DataTable">[dt_RSKSORequest.DefaultView.ToTable(true)]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <Assign DisplayName="Assign: clone headers from dtRSKSORequest to dtDuplicaterecords" sap:VirtualizedContainerService.HintSize="724,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_18">
+                        <Assign DisplayName="Assign: clone headers from dtRSKSORequest to dtDuplicaterecords" sap:VirtualizedContainerService.HintSize="646.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_18">
                           <Assign.To>
                             <OutArgument x:TypeArguments="sd:DataTable">[dt_DuplicateOrders]</OutArgument>
                           </Assign.To>
@@ -513,7 +470,7 @@
                             <InArgument x:TypeArguments="sd:DataTable">[dt_RSKSORequest.Clone]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <Assign DisplayName="Assign: init TempdtDuplicate" sap:VirtualizedContainerService.HintSize="724,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_30">
+                        <Assign DisplayName="Assign: init TempdtDuplicate" sap:VirtualizedContainerService.HintSize="646.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_30">
                           <Assign.To>
                             <OutArgument x:TypeArguments="sd:DataTable">[dt_tempDuplicateOrders]</OutArgument>
                           </Assign.To>
@@ -521,22 +478,22 @@
                             <InArgument x:TypeArguments="sd:DataTable">[dt_RSKSORequest.Clone]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <TryCatch DisplayName="Try Catch: try for finding Duplicate sales order" sap:VirtualizedContainerService.HintSize="1052.6666666666667,57.333333333333336" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                        <TryCatch DisplayName="Try Catch: try for finding Duplicate sales order" sap:VirtualizedContainerService.HintSize="646.6666666666666,1257.3333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <TryCatch.Try>
-                            <Sequence DisplayName="Sequence: Get duplicate sales order: try for finding Duplicate sales order" sap:VirtualizedContainerService.HintSize="1014,2772.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_68">
+                            <Sequence DisplayName="Sequence: Get duplicate sales order: try for finding Duplicate sales order" sap:VirtualizedContainerService.HintSize="512,986" sap2010:WorkflowViewState.IdRef="Sequence_68">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Assign DisplayName="Assign: Get duplicate orders from dtRSKSOPRequest by grouping" sap:VirtualizedContainerService.HintSize="952,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_21">
+                              <Assign DisplayName="Assign: Get duplicate orders from dtRSKSOPRequest by grouping" sap:VirtualizedContainerService.HintSize="450,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_21">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="sd:DataTable">[dt_tempDuplicateOrders]</OutArgument>
                                 </Assign.To>
@@ -544,7 +501,7 @@
                                   <InArgument x:TypeArguments="sd:DataTable">[(From row in dt_RSKSORequest.AsEnumerable() Group row by key = New With {Key .OrderType = row("Order type"), Key.Material = row("Material"), Key.RequestedDeliveryDate = row("Date requested"), Key.SOLDtoParty = row("SOLD to Party"), Key.SalesOffice = row("Sales Office")} into group from g in group where group.Count()&gt;1 Select g).CopyToDataTable()]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <ui:ForEach x:TypeArguments="sd:DataRow" CurrentIndex="{x:Null}" DisplayName="For Each duplicate entries in tempdtDuplicateOrders" sap:VirtualizedContainerService.HintSize="952,450" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[dt_tempDuplicateOrders.Rows]">
+                              <ui:ForEach x:TypeArguments="sd:DataRow" CurrentIndex="{x:Null}" DisplayName="For Each duplicate entries in tempdtDuplicateOrders" sap:VirtualizedContainerService.HintSize="450,450" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[dt_tempDuplicateOrders.Rows]">
                                 <ui:ForEach.Body>
                                   <ActivityAction x:TypeArguments="sd:DataRow">
                                     <ActivityAction.Argument>
@@ -567,150 +524,167 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:ForEach>
-                              <Sequence sap2010:Annotation.AnnotationText="Get Unique duplicates removed from dtRSKSOPRequest and Unique sales order with Clubbed Order Quantities Added to the dtRSKSOPRequest" DisplayName="Sequence: Get Unique duplicates removed from dtRSKSOPRequest and Unique sales order with Clubbed Order Quantities Added to the dtRSKSOPRequest" sap:VirtualizedContainerService.HintSize="952,1699.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_76">
+                              <ui:CommentOut DisplayName="Comment Out: add and remove unique" sap:VirtualizedContainerService.HintSize="450,86" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                                <ui:CommentOut.Body>
+                                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="1012.6666666666666,1155.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_98">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Sequence sap2010:Annotation.AnnotationText="Get Unique duplicates removed from dtRSKSOPRequest and Unique sales order with Clubbed Order Quantities Added to the dtRSKSOPRequest" DisplayName="Sequence: Get Unique duplicates removed from dtRSKSOPRequest and Unique sales order with Clubbed Order Quantities Added to the dtRSKSOPRequest" sap:VirtualizedContainerService.HintSize="950.6666666666666,1067.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_76">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Assign DisplayName="Assign: get temporary unique from dupllicates " sap:VirtualizedContainerService.HintSize="888.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_27">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="sd:DataTable">[dt_tempDuplicateOrders]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="sd:DataTable">[dt_tempDuplicateOrders.DefaultView.ToTable(true)]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <Assign DisplayName="Assign: Unique sales order from duplicate sales order" sap:VirtualizedContainerService.HintSize="888.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_26">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="sd:DataTable">[dt_UniqueFromDuplicatesSOs]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="sd:DataTable">[dt_RSKSORequest.Clone]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <Assign sap2010:Annotation.AnnotationText="Assign get Unique from duplicate values clubbbed Quantity for common material sales order" DisplayName="Assign get Unique from duplicate values clubbbed Quantity for common material sales order" sap:VirtualizedContainerService.HintSize="888.6666666666666,162.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_29">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="sd:DataTable">[dt_UniqueFromDuplicatesSOs]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="sd:DataTable">[(From row In dt_tempDuplicateOrders.AsEnumerable() Group row By key = New With { Key .OrderType = row("Order type"), Key .SalesOffice = row("Sales Office"), Key .SOLDToParty = row("SOLD to Party"), Key .Material = row("Material"), Key .MaterialDescription = row("Material Description"), Key .UOM = row("UOM"), Key .DateRequested = row("Date requested"), Key .OrderReason = row("Order Reason"), Key .UnloadingPoint = row("Unloading Point"), Key .AllowDup = row("Allow Dup") } Into Group Select dt_UniqueFromDuplicatesSOs.LoadDataRow(New Object() { key.OrderType, key.SalesOffice, key.SOLDToParty, key.Material, key.MaterialDescription, Group.Sum(Function(r) Convert.ToInt32(r("Quantity").ToString().Replace(",", ""))), key.UOM, key.DateRequested, key.OrderReason, key.UnloadingPoint, key.AllowDup }, False)).CopyToDataTable()]</InArgument>
+                                        </Assign.Value>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </Assign>
+                                      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="For Each Row in Data Table: Remove Datarow from dtRSKSOPRequest" DataTable="[dt_UniqueFromDuplicatesSOs]" DisplayName="For Each Row in Data Table: Remove Datarow from dtRSKSORequest" sap:VirtualizedContainerService.HintSize="888.6666666666666,148" sap2010:WorkflowViewState.IdRef="ForEachRow_8">
+                                        <ui:ForEachRow.Body>
+                                          <ActivityAction x:TypeArguments="sd:DataRow">
+                                            <ActivityAction.Argument>
+                                              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                                            </ActivityAction.Argument>
+                                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,274.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_77">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:FilterDataTable DataTable="[dt_RSKSORequest]" DisplayName="Filter Data Table filter matched rows from dtRSKSORequest" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="354,186.66666666666666" sap2010:WorkflowViewState.IdRef="FilterDataTable_8" OutputDataTable="[dt_RSKSORequest]" SelectColumnsMode="Remove">
+                                                <ui:FilterDataTable.Filters>
+                                                  <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="8">
+                                                    <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                                                      <ui:FilterOperationArgument.Column>
+                                                        <InArgument x:TypeArguments="x:String">["Order type"]</InArgument>
+                                                      </ui:FilterOperationArgument.Column>
+                                                      <ui:FilterOperationArgument.Operand>
+                                                        <InArgument x:TypeArguments="x:String">[CurrentRow("Order type").ToString.Trim]</InArgument>
+                                                      </ui:FilterOperationArgument.Operand>
+                                                    </ui:FilterOperationArgument>
+                                                    <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                                                      <ui:FilterOperationArgument.Column>
+                                                        <InArgument x:TypeArguments="x:String">["Material"]</InArgument>
+                                                      </ui:FilterOperationArgument.Column>
+                                                      <ui:FilterOperationArgument.Operand>
+                                                        <InArgument x:TypeArguments="x:String">[CurrentRow("Material").ToString.Trim]</InArgument>
+                                                      </ui:FilterOperationArgument.Operand>
+                                                    </ui:FilterOperationArgument>
+                                                    <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                                                      <ui:FilterOperationArgument.Column>
+                                                        <InArgument x:TypeArguments="x:String">["SOLD to Party"]</InArgument>
+                                                      </ui:FilterOperationArgument.Column>
+                                                      <ui:FilterOperationArgument.Operand>
+                                                        <InArgument x:TypeArguments="x:String">[CurrentRow("SOLD to Party").ToString.Trim]</InArgument>
+                                                      </ui:FilterOperationArgument.Operand>
+                                                    </ui:FilterOperationArgument>
+                                                    <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                                                      <ui:FilterOperationArgument.Column>
+                                                        <InArgument x:TypeArguments="x:String">["Date requested"]</InArgument>
+                                                      </ui:FilterOperationArgument.Column>
+                                                      <ui:FilterOperationArgument.Operand>
+                                                        <InArgument x:TypeArguments="x:String">[CurrentRow("Date requested").ToString.Trim]</InArgument>
+                                                      </ui:FilterOperationArgument.Operand>
+                                                    </ui:FilterOperationArgument>
+                                                    <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                                                      <ui:FilterOperationArgument.Column>
+                                                        <InArgument x:TypeArguments="x:String">["Sales Office"]</InArgument>
+                                                      </ui:FilterOperationArgument.Column>
+                                                      <ui:FilterOperationArgument.Operand>
+                                                        <InArgument x:TypeArguments="x:String">[CurrentRow("Sales Office").ToString.Trim]</InArgument>
+                                                      </ui:FilterOperationArgument.Operand>
+                                                    </ui:FilterOperationArgument>
+                                                  </scg:List>
+                                                </ui:FilterDataTable.Filters>
+                                                <ui:FilterDataTable.SelectColumns>
+                                                  <scg:List x:TypeArguments="InArgument" Capacity="4">
+                                                    <x:Null />
+                                                  </scg:List>
+                                                </ui:FilterDataTable.SelectColumns>
+                                              </ui:FilterDataTable>
+                                            </Sequence>
+                                          </ActivityAction>
+                                        </ui:ForEachRow.Body>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </ui:ForEachRow>
+                                      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_UniqueFromDuplicatesSOs]" DisplayName="For Each Row in dtUniqueFromDuplicateSOs add to dtRSKSORequest" sap:VirtualizedContainerService.HintSize="888.6666666666666,86" sap2010:WorkflowViewState.IdRef="ForEachRow_9">
+                                        <ui:ForEachRow.Body>
+                                          <ActivityAction x:TypeArguments="sd:DataRow">
+                                            <ActivityAction.Argument>
+                                              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                                            </ActivityAction.Argument>
+                                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,347.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_78">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Add Data Row: Unique Sales order with clubbed Quantity" ArrayRow="[CurrentRow.ItemArray]" DataTable="[dt_RSKSORequest]" DisplayName="Add Data Row: Unique Sales order with clubbed Quantity" sap:VirtualizedContainerService.HintSize="354,259.3333333333333" sap2010:WorkflowViewState.IdRef="AddDataRow_6">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </ui:AddDataRow>
+                                            </Sequence>
+                                          </ActivityAction>
+                                        </ui:ForEachRow.Body>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </ui:ForEachRow>
+                                      <ui:Comment DisplayName="Comment data removal" sap:VirtualizedContainerService.HintSize="888.6666666666666,127.33333333333333" sap2010:WorkflowViewState.IdRef="Comment_3" Text="// code to remove the dtUniqueFromDuplicateSOs from dtRSKSOPRequests" />
+                                      <ui:LogMessage DisplayName="Log Message:&quot;Rows removed from dtRSKSORequest and Unique From duplicates with clubbed Quantity for common material order added back&quot;" sap:VirtualizedContainerService.HintSize="888.6666666666666,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Rows removed from dtRSKSORequest and Unique From duplicates with clubbed Quantity for common material order added back&quot;]" />
+                                    </Sequence>
+                                  </Sequence>
+                                </ui:CommentOut.Body>
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <Assign DisplayName="Assign: get temporary unique from dupllicates " sap:VirtualizedContainerService.HintSize="890,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_27">
-                                  <Assign.To>
-                                    <OutArgument x:TypeArguments="sd:DataTable">[dt_tempDuplicateOrders]</OutArgument>
-                                  </Assign.To>
-                                  <Assign.Value>
-                                    <InArgument x:TypeArguments="sd:DataTable">[dt_tempDuplicateOrders.DefaultView.ToTable(true)]</InArgument>
-                                  </Assign.Value>
-                                </Assign>
-                                <Assign DisplayName="Assign: Unique sales order from duplicate sales order" sap:VirtualizedContainerService.HintSize="890,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_26">
-                                  <Assign.To>
-                                    <OutArgument x:TypeArguments="sd:DataTable">[dt_UniqueFromDuplicatesSOs]</OutArgument>
-                                  </Assign.To>
-                                  <Assign.Value>
-                                    <InArgument x:TypeArguments="sd:DataTable">[dt_RSKSORequest.Clone]</InArgument>
-                                  </Assign.Value>
-                                </Assign>
-                                <Assign sap2010:Annotation.AnnotationText="Assign get Unique from duplicate values clubbbed Quantity for common material sales order" DisplayName="Assign get Unique from duplicate values clubbbed Quantity for common material sales order" sap:VirtualizedContainerService.HintSize="890,162.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_29">
-                                  <Assign.To>
-                                    <OutArgument x:TypeArguments="sd:DataTable">[dt_UniqueFromDuplicatesSOs]</OutArgument>
-                                  </Assign.To>
-                                  <Assign.Value>
-                                    <InArgument x:TypeArguments="sd:DataTable">[(From row In dt_tempDuplicateOrders.AsEnumerable() Group row By key = New With { Key .OrderType = row("Order type"), Key .SalesOffice = row("Sales Office"), Key .SOLDToParty = row("SOLD to Party"), Key .Material = row("Material"), Key .MaterialDescription = row("Material Description"), Key .UOM = row("UOM"), Key .DateRequested = row("Date requested"), Key .OrderReason = row("Order Reason"), Key .UnloadingPoint = row("Unloading Point"), Key .AllowDup = row("Allow Dup") } Into Group Select dt_UniqueFromDuplicatesSOs.LoadDataRow(New Object() { key.OrderType, key.SalesOffice, key.SOLDToParty, key.Material, key.MaterialDescription, Group.Sum(Function(r) Convert.ToInt32(r("Quantity").ToString().Replace(",", ""))), key.UOM, key.DateRequested, key.OrderReason, key.UnloadingPoint, key.AllowDup }, False)).CopyToDataTable()]</InArgument>
-                                  </Assign.Value>
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                </Assign>
-                                <ui:Comment DisplayName="Comment data removal" sap:VirtualizedContainerService.HintSize="890,127.33333333333333" sap2010:WorkflowViewState.IdRef="Comment_3" Text="// code to remove the dtUniqueFromDuplicateSOs from dtRSKSOPRequests" />
-                                <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="For Each Row in Data Table: Remove Datarow from dtRSKSOPRequest" DataTable="[dt_UniqueFromDuplicatesSOs]" DisplayName="For Each Row in Data Table: Remove Datarow from dtRSKSORequest" sap:VirtualizedContainerService.HintSize="890,504" sap2010:WorkflowViewState.IdRef="ForEachRow_8">
-                                  <ui:ForEachRow.Body>
-                                    <ActivityAction x:TypeArguments="sd:DataRow">
-                                      <ActivityAction.Argument>
-                                        <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
-                                      </ActivityAction.Argument>
-                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,273.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_77">
-                                        <sap:WorkflowViewStateService.ViewState>
-                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                          </scg:Dictionary>
-                                        </sap:WorkflowViewStateService.ViewState>
-                                        <ui:FilterDataTable DataTable="[dt_RSKSORequest]" DisplayName="Filter Data Table filter matched rows from dtRSKSORequest" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="354,185.33333333333334" sap2010:WorkflowViewState.IdRef="FilterDataTable_8" OutputDataTable="[dt_RSKSORequest]" SelectColumnsMode="Remove">
-                                          <ui:FilterDataTable.Filters>
-                                            <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="8">
-                                              <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
-                                                <ui:FilterOperationArgument.Column>
-                                                  <InArgument x:TypeArguments="x:String">["Order type"]</InArgument>
-                                                </ui:FilterOperationArgument.Column>
-                                                <ui:FilterOperationArgument.Operand>
-                                                  <InArgument x:TypeArguments="x:String">[CurrentRow("Order type").ToString.Trim]</InArgument>
-                                                </ui:FilterOperationArgument.Operand>
-                                              </ui:FilterOperationArgument>
-                                              <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
-                                                <ui:FilterOperationArgument.Column>
-                                                  <InArgument x:TypeArguments="x:String">["Material"]</InArgument>
-                                                </ui:FilterOperationArgument.Column>
-                                                <ui:FilterOperationArgument.Operand>
-                                                  <InArgument x:TypeArguments="x:String">[CurrentRow("Material").ToString.Trim]</InArgument>
-                                                </ui:FilterOperationArgument.Operand>
-                                              </ui:FilterOperationArgument>
-                                              <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
-                                                <ui:FilterOperationArgument.Column>
-                                                  <InArgument x:TypeArguments="x:String">["SOLD to Party"]</InArgument>
-                                                </ui:FilterOperationArgument.Column>
-                                                <ui:FilterOperationArgument.Operand>
-                                                  <InArgument x:TypeArguments="x:String">[CurrentRow("SOLD to Party").ToString.Trim]</InArgument>
-                                                </ui:FilterOperationArgument.Operand>
-                                              </ui:FilterOperationArgument>
-                                              <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
-                                                <ui:FilterOperationArgument.Column>
-                                                  <InArgument x:TypeArguments="x:String">["Date requested"]</InArgument>
-                                                </ui:FilterOperationArgument.Column>
-                                                <ui:FilterOperationArgument.Operand>
-                                                  <InArgument x:TypeArguments="x:String">[CurrentRow("Date requested").ToString.Trim]</InArgument>
-                                                </ui:FilterOperationArgument.Operand>
-                                              </ui:FilterOperationArgument>
-                                              <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
-                                                <ui:FilterOperationArgument.Column>
-                                                  <InArgument x:TypeArguments="x:String">["Sales Office"]</InArgument>
-                                                </ui:FilterOperationArgument.Column>
-                                                <ui:FilterOperationArgument.Operand>
-                                                  <InArgument x:TypeArguments="x:String">[CurrentRow("Sales Office").ToString.Trim]</InArgument>
-                                                </ui:FilterOperationArgument.Operand>
-                                              </ui:FilterOperationArgument>
-                                            </scg:List>
-                                          </ui:FilterDataTable.Filters>
-                                          <ui:FilterDataTable.SelectColumns>
-                                            <scg:List x:TypeArguments="InArgument" Capacity="4">
-                                              <x:Null />
-                                            </scg:List>
-                                          </ui:FilterDataTable.SelectColumns>
-                                        </ui:FilterDataTable>
-                                      </Sequence>
-                                    </ActivityAction>
-                                  </ui:ForEachRow.Body>
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                </ui:ForEachRow>
-                                <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_UniqueFromDuplicatesSOs]" DisplayName="For Each Row in dtUniqueFromDuplicateSOs add to dtRSKSORequest" sap:VirtualizedContainerService.HintSize="890,520" sap2010:WorkflowViewState.IdRef="ForEachRow_9">
-                                  <ui:ForEachRow.Body>
-                                    <ActivityAction x:TypeArguments="sd:DataRow">
-                                      <ActivityAction.Argument>
-                                        <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
-                                      </ActivityAction.Argument>
-                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="426,330.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_78">
-                                        <sap:WorkflowViewStateService.ViewState>
-                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                          </scg:Dictionary>
-                                        </sap:WorkflowViewStateService.ViewState>
-                                        <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Add Data Row: Unique Sales order with clubbed Quantity" ArrayRow="[CurrentRow.ItemArray]" DataTable="[dt_RSKSORequest]" DisplayName="Add Data Row: Unique Sales order with clubbed Quantity" sap:VirtualizedContainerService.HintSize="364,242.66666666666666" sap2010:WorkflowViewState.IdRef="AddDataRow_6">
-                                          <sap:WorkflowViewStateService.ViewState>
-                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                            </scg:Dictionary>
-                                          </sap:WorkflowViewStateService.ViewState>
-                                        </ui:AddDataRow>
-                                      </Sequence>
-                                    </ActivityAction>
-                                  </ui:ForEachRow.Body>
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                </ui:ForEachRow>
-                              </Sequence>
-                              <ui:LogMessage DisplayName="Log Message:&quot;Rows removed from dtRSKSORequest and Unique From duplicates with clubbed Quantity for common material order added back&quot;" sap:VirtualizedContainerService.HintSize="952,175.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Rows removed from dtRSKSORequest and Unique From duplicates with clubbed Quantity for common material order added back&quot;]" />
-                              <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" sap2010:Annotation.AnnotationText="Add Data Column=UniqueKey in dtDuplicateSOs" ColumnName="UniqueKey" DataTable="[dt_DuplicateOrders]" DisplayName="Add Data Column=UniqueKey in dtDuplicateSOs" sap:VirtualizedContainerService.HintSize="952,242.66666666666666" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2">
+                              </ui:CommentOut>
+                              <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" sap2010:Annotation.AnnotationText="Add Data Column=UniqueKey in dtDuplicateSOs" ColumnName="UniqueKey" DataTable="[dt_DuplicateOrders]" DisplayName="Add Data Column=UniqueKey in dtDuplicateSOs" sap:VirtualizedContainerService.HintSize="450,244.66666666666666" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -720,7 +694,7 @@
                             </Sequence>
                           </TryCatch.Try>
                           <TryCatch.Catches>
-                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1018.6666666666666,22.666666666666668" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="516.6666666666666,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_2">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -736,10 +710,10 @@
                             </Catch>
                           </TryCatch.Catches>
                         </TryCatch>
-                        <If sap2010:Annotation.AnnotationText="check If any duplicate records found then mail back to user by marking Allow Dup=Failed" Condition="[dt_DuplicateOrders.RowCount&gt;0]" DisplayName="check If any duplicate records found then mail back to user by marking Allow Dup=Failed" sap:VirtualizedContainerService.HintSize="1052.6666666666667,119.33333333333333" sap2010:WorkflowViewState.IdRef="If_7">
+                        <If sap2010:Annotation.AnnotationText="check If any duplicate records found then mail back to user by marking Allow Dup=Failed" Condition="[dt_DuplicateOrders.RowCount&gt;0]" DisplayName="check If any duplicate records found then mail back to user by marking Allow Dup=Failed" sap:VirtualizedContainerService.HintSize="646.6666666666666,1108.6666666666667" sap2010:WorkflowViewState.IdRef="If_7">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                             </scg:Dictionary>
@@ -773,7 +747,6 @@
                                   <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                                   <InArgument x:TypeArguments="s:Exception" x:Key="in_Exception">[Nothing]</InArgument>
                                   <InArgument x:TypeArguments="x:String" x:Key="in_ExMailTo">[CurrentMail.From.Address]</InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_ExMailSubject">Duplicate sales order found in RSK table</InArgument>
                                   <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtDuplicateRecords">[dt_DuplicateOrders]</InArgument>
                                   <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtUrgentDeliveries">[Nothing]</InArgument>
                                   <InArgument x:TypeArguments="x:String" x:Key="in_strExceptionFilePath" />
@@ -782,7 +755,7 @@
                             </Sequence>
                           </If.Then>
                           <If.Else>
-                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,104" sap2010:WorkflowViewState.IdRef="Sequence_56">
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,104.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_56">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -791,7 +764,7 @@
                             </Sequence>
                           </If.Else>
                         </If>
-                        <Assign DisplayName="Assign: get header copy for Urgent deliveries" sap:VirtualizedContainerService.HintSize="1052.6666666666667,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_32">
+                        <Assign DisplayName="Assign: get header copy for Urgent deliveries" sap:VirtualizedContainerService.HintSize="646.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_32">
                           <Assign.To>
                             <OutArgument x:TypeArguments="sd:DataTable">[dt_UrgentDeliveries]</OutArgument>
                           </Assign.To>
@@ -799,75 +772,86 @@
                             <InArgument x:TypeArguments="sd:DataTable">[dt_RSKSORequest.Clone]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <TryCatch DisplayName="Try Catch: Check if any Urgent deliveries" sap:VirtualizedContainerService.HintSize="1052.6666666666667,57.333333333333336" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                        <Assign DisplayName="Assign: Get unique SO request" sap:VirtualizedContainerService.HintSize="646.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_35">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="sd:DataTable">[dt_RSKSORequest]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="sd:DataTable">[dt_RSKSORequest.DefaultView.ToTable(true)]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <TryCatch DisplayName="Try Catch: Check if any Urgent deliveries" sap:VirtualizedContainerService.HintSize="646.6666666666666,2670.6666666666665" sap2010:WorkflowViewState.IdRef="TryCatch_3">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <TryCatch.Try>
-                            <Sequence DisplayName="Try for urgent SOs" sap:VirtualizedContainerService.HintSize="512,698" sap2010:WorkflowViewState.IdRef="Sequence_82">
+                            <Sequence DisplayName="Try for urgent SOs" sap:VirtualizedContainerService.HintSize="608,2399.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_82">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_RSKSORequest]" DisplayName="For Each Row in dtRSKSORequest" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="ForEachRow_11">
+                              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_RSKSORequest]" DisplayName="For Each Row in dtRSKSORequest" sap:VirtualizedContainerService.HintSize="546,1332.6666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_11">
                                 <ui:ForEachRow.Body>
                                   <ActivityAction x:TypeArguments="sd:DataRow">
                                     <ActivityAction.Argument>
                                       <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                                     </ActivityAction.Argument>
-                                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,346" sap2010:WorkflowViewState.IdRef="Sequence_84">
+                                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512,1132.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_84">
                                       <Sequence.Variables>
                                         <Variable x:TypeArguments="x:String" Name="formatedDeliveryDate" />
+                                        <Variable x:TypeArguments="x:String" Name="strInputDateRequested" />
                                       </Sequence.Variables>
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="00_GetInputDateParsed - Invoke Workflow File (Utility_Workflows\00_GetInputDateParsed.xaml)" sap:VirtualizedContainerService.HintSize="354,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Utility_Workflows\00_GetInputDateParsed.xaml">
+                                      <Assign DisplayName="Assign: get input requested date delivery" sap:VirtualizedContainerService.HintSize="450,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_34">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:String">[strInputDateRequested]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:String">[CurrentRow("Date requested").ToString]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <Assign sap2010:Annotation.AnnotationText="Assign: Get Email Sender address asssigned Request Sender column" DisplayName="Assign: Get Email Sender address asssigned Request Sender column" sap:VirtualizedContainerService.HintSize="450,148" sap2010:WorkflowViewState.IdRef="Assign_33">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Object">[CurrentRow("Request Sender")]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Object">[CurrentMail.From.Address.ToString]</InArgument>
+                                        </Assign.Value>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </Assign>
+                                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="00_GetInputDateParsed - Invoke Workflow File (Utility_Workflows\00_GetInputDateParsed.xaml)" sap:VirtualizedContainerService.HintSize="450,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Utility_Workflows\00_GetInputDateParsed.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_strInputRequestedDeliveryDate">[CurrentRow("Date requested").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_strInputRequestedDeliveryDate">[strInputDateRequested]</InArgument>
                                           <OutArgument x:TypeArguments="x:String" x:Key="out_FormatedDeliveryDate">[formatedDeliveryDate]</OutArgument>
                                           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
-                                      <If Condition="[DateTime.ParseExact(formatedDeliveryDate,&quot;dd.MM.yyyy&quot;,system.Globalization.CultureInfo.InvariantCulture,nothing)&lt;=DateTime.Now.AddDays(1)]" DisplayName="check if Date requested &lt;=Today+1 : for urgent deliveries" sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="If_9">
+                                      <If Condition="[DateTime.ParseExact(formatedDeliveryDate,&quot;dd.MM.yyyy&quot;,system.Globalization.CultureInfo.InvariantCulture,nothing)&lt;=DateTime.Now]" DisplayName="check if Date requested &lt;=Today : for urgent deliveries" sap:VirtualizedContainerService.HintSize="450,569.3333333333334" sap2010:WorkflowViewState.IdRef="If_9">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                         <If.Then>
-                                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,498" sap2010:WorkflowViewState.IdRef="Sequence_85">
+                                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,302" sap2010:WorkflowViewState.IdRef="Sequence_85">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <ui:FilterDataTable DataTable="[dt_RSKSORequest]" DisplayName="Filter: urgent deliveries" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="354,196" sap2010:WorkflowViewState.IdRef="FilterDataTable_10" OutputDataTable="[dt_RSKSORequest]" SelectColumnsMode="Remove">
-                                              <ui:FilterDataTable.Filters>
-                                                <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
-                                                  <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
-                                                    <ui:FilterOperationArgument.Column>
-                                                      <InArgument x:TypeArguments="x:Int32">[7]</InArgument>
-                                                    </ui:FilterOperationArgument.Column>
-                                                    <ui:FilterOperationArgument.Operand>
-                                                      <InArgument x:TypeArguments="x:String">[CurrentRow("Date requested").ToString]</InArgument>
-                                                    </ui:FilterOperationArgument.Operand>
-                                                  </ui:FilterOperationArgument>
-                                                </scg:List>
-                                              </ui:FilterDataTable.Filters>
-                                              <ui:FilterDataTable.SelectColumns>
-                                                <scg:List x:TypeArguments="InArgument" Capacity="4">
-                                                  <x:Null />
-                                                </scg:List>
-                                              </ui:FilterDataTable.SelectColumns>
-                                            </ui:FilterDataTable>
                                             <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[CurrentRow.ItemArray]" DataTable="[dt_UrgentDeliveries]" DisplayName="Add Data Row: to urgent delivery table" sap:VirtualizedContainerService.HintSize="354,214" sap2010:WorkflowViewState.IdRef="AddDataRow_7" />
                                           </Sequence>
                                         </If.Then>
@@ -886,25 +870,65 @@
                                 </ui:ForEachRow.Body>
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:ForEachRow>
-                              <If Condition="[dt_UrgentDeliveries.RowCount&gt;0]" DisplayName="If dtUrgentDeliveries rowcount&gt;0" sap:VirtualizedContainerService.HintSize="450,552.6666666666666" sap2010:WorkflowViewState.IdRef="If_10">
+                              <If Condition="[dt_UrgentDeliveries.RowCount&gt;0]" DisplayName="If dtUrgentDeliveries rowcount&gt;0" sap:VirtualizedContainerService.HintSize="546,978.6666666666666" sap2010:WorkflowViewState.IdRef="If_10">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
                                 <If.Then>
-                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,286.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_87">
+                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="512,711.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_87">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility_Workflows\SendEmailDuplicatesAndExceptions.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="354,198.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" Level="Warn" LogEntry="[UiPath.Core.Activities.LogEntryType.OnlyInvocation]" LogExit="[UiPath.Core.Activities.LogExitType.OnlySuccessfulReturn]" UnSafe="False" WorkflowFileName="Utility_Workflows\SendEmailDuplicatesAndExceptions.xaml">
+                                    <ui:ForEach x:TypeArguments="sd:DataRow" CurrentIndex="{x:Null}" DisplayName="For  Each urgent delivery dates filter records from dtRSKSalesOrder" sap:VirtualizedContainerService.HintSize="450,422.6666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[dt_UrgentDeliveries.DefaultView.ToTable(true, &quot;Date requested&quot;).AsEnumerable()]">
+                                      <ui:ForEach.Body>
+                                        <ActivityAction x:TypeArguments="sd:DataRow">
+                                          <ActivityAction.Argument>
+                                            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="currentDataRow" />
+                                          </ActivityAction.Argument>
+                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,274.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_96">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:FilterDataTable DataTable="[dt_RSKSORequest]" DisplayName="Filter: urgent deliveries" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="354,186.66666666666666" sap2010:WorkflowViewState.IdRef="FilterDataTable_12" OutputDataTable="[dt_RSKSORequest]" SelectColumnsMode="Remove">
+                                              <ui:FilterDataTable.Filters>
+                                                <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                                                  <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                                                    <ui:FilterOperationArgument.Column>
+                                                      <InArgument x:TypeArguments="x:Int32">[8]</InArgument>
+                                                    </ui:FilterOperationArgument.Column>
+                                                    <ui:FilterOperationArgument.Operand>
+                                                      <InArgument x:TypeArguments="x:String">[currentDataRow("Date requested").ToString.Trim]</InArgument>
+                                                    </ui:FilterOperationArgument.Operand>
+                                                  </ui:FilterOperationArgument>
+                                                </scg:List>
+                                              </ui:FilterDataTable.Filters>
+                                              <ui:FilterDataTable.SelectColumns>
+                                                <scg:List x:TypeArguments="InArgument" Capacity="4">
+                                                  <x:Null />
+                                                </scg:List>
+                                              </ui:FilterDataTable.SelectColumns>
+                                            </ui:FilterDataTable>
+                                          </Sequence>
+                                        </ActivityAction>
+                                      </ui:ForEach.Body>
+                                    </ui:ForEach>
+                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility_Workflows\SendEmailDuplicatesAndExceptions.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="450,200.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" Level="Warn" LogEntry="[UiPath.Core.Activities.LogEntryType.OnlyInvocation]" LogExit="[UiPath.Core.Activities.LogExitType.OnlySuccessfulReturn]" UnSafe="False" WorkflowFileName="Utility_Workflows\SendEmailDuplicatesAndExceptions.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
                                         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                                         <InArgument x:TypeArguments="s:Exception" x:Key="in_Exception">[Nothing]</InArgument>
                                         <InArgument x:TypeArguments="x:String" x:Key="in_ExMailTo">[in_Config("SME_Email").ToString]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ExMailSubject">Urgent delivery sales order found in RSK table</InArgument>
                                         <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtDuplicateRecords">[nothing]</InArgument>
                                         <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtUrgentDeliveries">[dt_UrgentDeliveries]</InArgument>
                                         <InArgument x:TypeArguments="x:String" x:Key="in_strExceptionFilePath" />
@@ -913,7 +937,7 @@
                                   </Sequence>
                                 </If.Then>
                                 <If.Else>
-                                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,104" sap2010:WorkflowViewState.IdRef="Sequence_88">
+                                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,104.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_88">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -925,7 +949,7 @@
                             </Sequence>
                           </TryCatch.Try>
                           <TryCatch.Catches>
-                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="516.6666666666666,22.666666666666668" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="612.6666666666666,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_3">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -936,12 +960,12 @@
                                 <ActivityAction.Argument>
                                   <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                                 </ActivityAction.Argument>
-                                <ui:LogMessage DisplayName="Log Message: No Urgent delivery SO" sap:VirtualizedContainerService.HintSize="334,143.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;No Urgent delivery SO are found&quot;]" />
+                                <ui:LogMessage DisplayName="Log Message: No Urgent delivery SO" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;No Urgent delivery SO are found&quot;]" />
                               </ActivityAction>
                             </Catch>
                           </TryCatch.Catches>
                         </TryCatch>
-                        <If sap2010:Annotation.AnnotationText="check if Data extracted is not nothing, Data to be pushed to Queue" Condition="[dt_RSKSORequest.RowCount&gt;=1]" DisplayName="check if Data extracted is not nothing, Data to be pushed to Queue" sap:VirtualizedContainerService.HintSize="1052.6666666666667,1536.6666666666667" sap2010:WorkflowViewState.IdRef="If_4">
+                        <If sap2010:Annotation.AnnotationText="check if Data extracted is not nothing, Data to be pushed to Queue" Condition="[dt_RSKSORequest.RowCount&gt;=1]" DisplayName="check if Data extracted is not nothing, Data to be pushed to Queue" sap:VirtualizedContainerService.HintSize="646.6666666666666,1844" sap2010:WorkflowViewState.IdRef="If_4">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -950,25 +974,28 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <If.Then>
-                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="690,1140.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="595.3333333333334,1328" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                              <Sequence.Variables>
+                                <Variable x:TypeArguments="x:String" Name="strRSKSalesOrderPickedMailBody" />
+                              </Sequence.Variables>
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="For Each Row dtRSKSORequest and if duplicate but records approved to proceed for placing sales order" DataTable="[dt_RSKSORequest]" DisplayName="For Each Row dtRSKSORequest and if duplicate but records approved to proceed for placing sales order" sap:VirtualizedContainerService.HintSize="628,1052.6666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="For Each Row dtRSKSORequest and if duplicate but records approved to proceed for placing sales order" DataTable="[dt_RSKSORequest]" DisplayName="For Each Row dtRSKSORequest and if duplicate but records approved to proceed for placing sales order" sap:VirtualizedContainerService.HintSize="533.3333333333334,804.6666666666666" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
                                 <ui:ForEachRow.Body>
                                   <ActivityAction x:TypeArguments="sd:DataRow">
                                     <ActivityAction.Argument>
                                       <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                                     </ActivityAction.Argument>
-                                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="592,831.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,559.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_43">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <Assign DisplayName="Assign: get init dictionary of string of object" sap:VirtualizedContainerService.HintSize="530,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_15">
+                                      <Assign DisplayName="Assign: get init dictionary of string of object" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_15">
                                         <Assign.To>
                                           <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[dictSOPRSKsalesOrders]</OutArgument>
                                         </Assign.To>
@@ -976,7 +1003,7 @@
                                           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[new Dictionary(of String,object)]</InArgument>
                                         </Assign.Value>
                                       </Assign>
-                                      <ui:ForEach x:TypeArguments="sd:DataColumn" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="For column Each in dtRSKSORequest" DisplayName="For column Each in dtRSKSORequest" sap:VirtualizedContainerService.HintSize="530,374.6666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[dt_RSKSORequest.Columns]">
+                                      <ui:ForEach x:TypeArguments="sd:DataColumn" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="For column Each in dtRSKSORequest" DisplayName="For column Each in dtRSKSORequest" sap:VirtualizedContainerService.HintSize="434,102.66666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[dt_RSKSORequest.Columns]">
                                         <ui:ForEach.Body>
                                           <ActivityAction x:TypeArguments="sd:DataColumn">
                                             <ActivityAction.Argument>
@@ -1001,13 +1028,13 @@
                                         </ui:ForEach.Body>
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                       </ui:ForEach>
-                                      <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Add Queue Item RSK Sales orders" DisplayName="Add Queue Item RSK Sales orders" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="530,251.33333333333334" sap2010:WorkflowViewState.IdRef="AddQueueItem_2" ItemInformationCollection="[dictSOPRSKsalesOrders]" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" Reference="[CurrentRow(&quot;SOLD to Party&quot;).ToString]">
+                                      <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Add Queue Item RSK Sales orders" DisplayName="Add Queue Item RSK Sales orders" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,251.33333333333334" sap2010:WorkflowViewState.IdRef="AddQueueItem_2" ItemInformationCollection="[dictSOPRSKsalesOrders]" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" Reference="[CurrentRow(&quot;SOLD to Party&quot;).ToString]">
                                         <ui:AddQueueItem.ItemInformation>
                                           <scg:Dictionary x:TypeArguments="x:String, InArgument" />
                                         </ui:AddQueueItem.ItemInformation>
@@ -1030,16 +1057,30 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:ForEachRow>
+                              <ui:ReadTextFile File="{x:Null}" sap2010:Annotation.AnnotationText="Read Text File: Responding email sender RSK SO request is picked" Content="[strRSKSalesOrderPickedMailBody]" DisplayName="Read Text File: Responding email sender RSK SO request is picked" FileName="[in_Config(&quot;RSK_SalesOrderPickedMailBody&quot;).ToString]" sap:VirtualizedContainerService.HintSize="533.3333333333334,159.33333333333334" sap2010:WorkflowViewState.IdRef="ReadTextFile_1">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:ReadTextFile>
+                              <ui:ReplyToOutlookMailMessage AddBcc="{x:Null}" AddCc="{x:Null}" AddTo="{x:Null}" NewSubject="{x:Null}" ReplyFrom="{x:Null}" TimeoutMS="{x:Null}" Body="[strRSKSalesOrderPickedMailBody]" DisplayName="Reply To Outlook Mail Message: Order Picked for delivery" sap:VirtualizedContainerService.HintSize="533.3333333333334,158.66666666666666" sap2010:WorkflowViewState.IdRef="ReplyToOutlookMailMessage_1" Importance="Normal" MailMessage="[CurrentMail]" ReplyAll="False">
+                                <ui:ReplyToOutlookMailMessage.Files>
+                                  <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                                </ui:ReplyToOutlookMailMessage.Files>
+                              </ui:ReplyToOutlookMailMessage>
+                              <ui:MoveOutlookMessage Account="{x:Null}" DisplayName="Move Outlook Mail Message: Move email to MailProcessedFolder" sap:VirtualizedContainerService.HintSize="533.3333333333334,117.33333333333333" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_1" MailFolder="[path.Combine(in_Config(&quot;EmailFolder&quot;).ToString,in_Config(&quot;MailProcessedFolder&quot;).ToString)]" MailMessage="[CurrentMail]" />
                             </Sequence>
                           </If.Then>
                           <If.Else>
-                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,202.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,322.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_39">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Throw DisplayName="Throw SE:No SOP RSK Data to push to queue" Exception="[new SystemException(&quot;No SOP RSK Data to push to queue&quot;)]" sap:VirtualizedContainerService.HintSize="354,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                              <ui:MoveOutlookMessage Account="{x:Null}" DisplayName="Move Outlook Mail Message: Move email to MailProcessedFolder" sap:VirtualizedContainerService.HintSize="354,120" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_2" MailFolder="[path.Combine(in_Config(&quot;EmailFolder&quot;).ToString,in_Config(&quot;MailNotProcessedFolder&quot;).ToString)]" MailMessage="[CurrentMail]" />
+                              <Throw DisplayName="Throw SE:No SOP RSK Data to push to queue" Exception="[new BusinessRuleException(&quot;No SOP RSK Data to push to queue&quot;)]" sap:VirtualizedContainerService.HintSize="354,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_2" />
                             </Sequence>
                           </If.Else>
                         </If>
@@ -1065,7 +1106,7 @@
         </umab:OutlookApplicationCard>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1249.3333333333333,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1248,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1076,11 +1117,25 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="sysexception" />
             </ActivityAction.Argument>
-            <Rethrow DisplayName="Rethrow: NO DATA TO PUSH TO QUEUE exception SE" sap:VirtualizedContainerService.HintSize="340,25.333333333333332" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+            <Rethrow DisplayName="Rethrow: System exception in dispatcher" sap:VirtualizedContainerService.HintSize="334,25.333333333333332" sap2010:WorkflowViewState.IdRef="Rethrow_3" />
+          </ActivityAction>
+        </Catch>
+        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="1248,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="ui:BusinessRuleException">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
+            </ActivityAction.Argument>
+            <Rethrow DisplayName="Rethrow: NO DATA TO PUSH TO QUEUE exception SE" sap:VirtualizedContainerService.HintSize="340,25.333333333333332" sap2010:WorkflowViewState.IdRef="Rethrow_2" />
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:LogMessage DisplayName="Log Message: Kill Process Close all Outlook instances" sap:VirtualizedContainerService.HintSize="954.6666666666666,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Kill Process: Close all Outlook instances&quot;]" />
+    <ui:LogMessage DisplayName="Log Message: Kill Process Close all Outlook instances" sap:VirtualizedContainerService.HintSize="1282,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Kill Process: Close all Outlook instances&quot;]" />
   </Sequence>
 </Activity>

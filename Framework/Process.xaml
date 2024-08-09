@@ -11,7 +11,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1152,3020.6666666666665</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1152,6077.333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="100">
@@ -233,7 +233,7 @@
       <x:Boolean x:Key="ShouldCollapseAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retired. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="636.6666666666666,2956" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retired. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="793.3333333333334,6012.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="RecallQueueItemsList" />
       <Variable x:TypeArguments="x:String" Name="strOrderNumber" />
@@ -252,7 +252,7 @@
         <x:Boolean x:Key="IsPinned">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="574.6666666666666,57.333333333333336" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]">
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="731.3333333333334,86" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -260,7 +260,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:GetQueueItems Duration="{x:Null}" From="{x:Null}" Priority="{x:Null}" Skip="{x:Null}" TimeoutMS="{x:Null}" To="{x:Null}" Top="{x:Null}" DisplayName="Get Queue Items: Sales Order for a customer" FilterStrategy="Equals" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="574.6666666666666,176.66666666666666" sap2010:WorkflowViewState.IdRef="GetQueueItems_1" QueueItemStates="New, InProgress" QueueName="SOP_RSKSalesOrders" Reference="[in_SoldToParty]" Result="[RecallQueueItemsList]">
+    <ui:GetQueueItems Duration="{x:Null}" From="{x:Null}" Priority="{x:Null}" Skip="{x:Null}" TimeoutMS="{x:Null}" To="{x:Null}" Top="{x:Null}" DisplayName="Get Queue Items: Sales Order for a customer" FilterStrategy="Equals" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="731.3333333333334,176.66666666666666" sap2010:WorkflowViewState.IdRef="GetQueueItems_1" QueueItemStates="New, InProgress" QueueName="SOP_RSKSalesOrders" Reference="[in_SoldToParty]" Result="[RecallQueueItemsList]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -268,20 +268,20 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:GetQueueItems>
-    <ui:ForEach x:TypeArguments="ui:QueueItem" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="1.Bot Removes Queue items which are duplicate from list of Sales order to be placed , &#xA;2.Updates tracker value as failed " DisplayName="For Each Queue item details check if its a duplicate sales order" sap:VirtualizedContainerService.HintSize="574.6666666666666,1019.3333333333334" sap2010:WorkflowViewState.IdRef="ForEach`1_13" Values="[RecallQueueItemsList]">
+    <ui:ForEach x:TypeArguments="ui:QueueItem" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="1.Bot Removes Queue items which are duplicate from list of Sales order to be placed , &#xA;2.Updates tracker value as failed " DisplayName="For Each Queue item details check if its a duplicate sales order" sap:VirtualizedContainerService.HintSize="731.3333333333334,2796.6666666666665" sap2010:WorkflowViewState.IdRef="ForEach`1_13" Values="[RecallQueueItemsList]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="ui:QueueItem">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:QueueItem" Name="currentQueueItem" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="540.6666666666666,826" sap2010:WorkflowViewState.IdRef="Sequence_16">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="692.6666666666666,2603.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_16">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <TryCatch DisplayName="Try placing sales order Catch BE and SEs" sap:VirtualizedContainerService.HintSize="478.6666666666667,738" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+            <TryCatch DisplayName="Try placing sales order Catch BE and SEs" sap:VirtualizedContainerService.HintSize="630.6666666666666,2515.3333333333335" sap2010:WorkflowViewState.IdRef="TryCatch_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsPinned">True</x:Boolean>
@@ -289,7 +289,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <TryCatch.Try>
-                <Sequence DisplayName="RSK Sales Order" sap:VirtualizedContainerService.HintSize="543.3333333333334,1690.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                <Sequence DisplayName="RSK Sales Order" sap:VirtualizedContainerService.HintSize="592,2230" sap2010:WorkflowViewState.IdRef="Sequence_32">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="strMaterialDescription" />
                     <Variable x:TypeArguments="x:String" Name="strUOM" />
@@ -301,7 +301,7 @@
                       <x:Boolean x:Key="IsPinned">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <If Condition="[currentQueueItem.Status.Equals(UiPath.Core.QueueItemStatus.New)]" DisplayName="check If Queue item status is New" sap:VirtualizedContainerService.HintSize="481.3333333333333,728" sap2010:WorkflowViewState.IdRef="If_13">
+                  <If Condition="[currentQueueItem.Status.Equals(UiPath.Core.QueueItemStatus.New)]" DisplayName="check If Queue item status is New" sap:VirtualizedContainerService.HintSize="530,728" sap2010:WorkflowViewState.IdRef="If_13">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsPinned">True</x:Boolean>
@@ -343,7 +343,7 @@
                       </Sequence>
                     </If.Else>
                   </If>
-                  <ui:MultipleAssign sap2010:Annotation.AnnotationText="Multiple Assign: Get variable required for duplicate check using Tcode-ZVR3 dfcv                           v x        " DisplayName="Multiple Assign: Get variable required for duplicate check using Tcode-ZVR3" sap:VirtualizedContainerService.HintSize="481.3333333333333,440" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                  <ui:MultipleAssign sap2010:Annotation.AnnotationText="Multiple Assign: Get variable required for duplicate check using Tcode-ZVR3 dfcv                           v x        " DisplayName="Multiple Assign: Get variable required for duplicate check using Tcode-ZVR3" sap:VirtualizedContainerService.HintSize="530,440" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                     <ui:MultipleAssign.AssignOperations>
                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
@@ -428,7 +428,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:MultipleAssign>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="BuisnessWorkflow\001_IdentifyDuplicateOrderTcode-ZVR3.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="481.3333333333333,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="BuisnessWorkflow\001_IdentifyDuplicateOrderTcode-ZVR3.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="BuisnessWorkflow\001_IdentifyDuplicateOrderTcode-ZVR3.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="530,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="[UiPath.Core.Activities.LogEntryType.OnlyInvocation]" LogExit="[UiPath.Core.Activities.LogExitType.OnlySuccessfulReturn]" UnSafe="False" WorkflowFileName="BuisnessWorkflow\001_IdentifyDuplicateOrderTcode-ZVR3.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_SalesOffice">[SalesOffice]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_Material">[Material]</InArgument>
@@ -446,7 +446,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:InvokeWorkflowFile>
-                  <ui:LogMessage DisplayName="Log Message. duplicate check" sap:VirtualizedContainerService.HintSize="481.3333333333333,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Duplicate check&quot;+boolDuplicateSalesOrder.ToString]">
+                  <ui:LogMessage DisplayName="Log Message. duplicate check" sap:VirtualizedContainerService.HintSize="530,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Duplicate check&quot;+boolDuplicateSalesOrder.ToString]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -454,11 +454,11 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:LogMessage>
-                  <If Condition="[boolDuplicateSalesOrder=True]" DisplayName="check If Sales Order request is already placed: isDuplicateSalesOrder" sap:VirtualizedContainerService.HintSize="481.3333333333333,48" sap2010:WorkflowViewState.IdRef="If_4">
+                  <If Condition="[boolDuplicateSalesOrder=True]" DisplayName="check If Sales Order request is already placed: isDuplicateSalesOrder" sap:VirtualizedContainerService.HintSize="530,587.3333333333334" sap2010:WorkflowViewState.IdRef="If_4">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
@@ -505,18 +505,18 @@
                 </Sequence>
               </TryCatch.Try>
               <TryCatch.Catches>
-                <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="444.6666666666667,520" sap2010:WorkflowViewState.IdRef="Catch`1_5">
+                <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="596.6666666666666,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_5">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ActivityAction x:TypeArguments="ui:BusinessRuleException">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
                     </ActivityAction.Argument>
-                    <TryCatch DisplayName="Try Catch Set Transaction Status- duplicate (BRE)" sap:VirtualizedContainerService.HintSize="438.6666666666667,448" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                    <TryCatch DisplayName="Try Catch Set Transaction Status- duplicate (BRE)" sap:VirtualizedContainerService.HintSize="434,195.33333333333334" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -524,7 +524,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <TryCatch.Try>
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Reason= &quot;Duplicate Order: Order already placed&quot;" DisplayName="SetTransactionStatus - Invoke Workflow File (Framework\SetTransactionStatus.xaml)-Reason= &quot;Duplicate Order: Order already placed&quot;" sap:VirtualizedContainerService.HintSize="334,208.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Framework\SetTransactionStatus.xaml">
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Reason= &quot;Duplicate Order: Order already placed&quot;" DisplayName="SetTransactionStatus - Invoke Workflow File (Framework\SetTransactionStatus.xaml)-Reason= &quot;Duplicate Order: Order already placed&quot;" sap:VirtualizedContainerService.HintSize="336,208.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Framework\SetTransactionStatus.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="in_BusinessException">[exception]</InArgument>
                             <InArgument x:TypeArguments="s:Exception" x:Key="in_SystemException">[Nothing]</InArgument>
@@ -547,7 +547,7 @@
                         </ui:InvokeWorkflowFile>
                       </TryCatch.Try>
                       <TryCatch.Catches>
-                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404.6666666666667,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_4">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -558,11 +558,11 @@
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Sequence: exception system " sap:VirtualizedContainerService.HintSize="416,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                            <Sequence DisplayName="Sequence: exception system " sap:VirtualizedContainerService.HintSize="416,312.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_34">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <ui:LogMessage DisplayName="Log message (Failed to set transaction status BRE)" sap:VirtualizedContainerService.HintSize="354,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Fatal" Message="[&quot;SetTransactionStatus.xaml failed: &quot;+exception.Message+&quot; at Source: &quot;+exception.Source]">
@@ -581,7 +581,7 @@
                     </TryCatch>
                   </ActivityAction>
                 </Catch>
-                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="444.6666666666667,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_6">
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="596.6666666666666,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_6">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -592,7 +592,7 @@
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Sequence: SE duplicate check" sap:VirtualizedContainerService.HintSize="416,309.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                    <Sequence DisplayName="Sequence: SE duplicate check" sap:VirtualizedContainerService.HintSize="416,312.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_33">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -607,34 +607,6 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:LogMessage>
-                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="354,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_13">
-                        <ui:CommentOut.Body>
-                          <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_61">
-                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="System exception occured in identifying duplicate SOs" DisplayName="SetTransactionStatus - Invoke Workflow File (Framework\SetTransactionStatus.xaml)-Reason= &quot;System exception occured in identifying duplicate SOs&quot;" sap:VirtualizedContainerService.HintSize="354,102.66666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Framework\SetTransactionStatus.xaml">
-                              <ui:InvokeWorkflowFile.Arguments>
-                                <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="in_BusinessException">[nothing]</InArgument>
-                                <InArgument x:TypeArguments="s:Exception" x:Key="in_SystemException">[exception]</InArgument>
-                                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-                                <InOutArgument x:TypeArguments="x:Int32" x:Key="io_RetryNumber">[RetryCount]</InOutArgument>
-                                <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber" />
-                                <InArgument x:TypeArguments="x:String" x:Key="in_SalesOrderNumber" />
-                                <InArgument x:TypeArguments="x:String" x:Key="in_SoldToParty">[in_SoldToParty]</InArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="in_Quantity">[OrderQuantity]</InArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="in_MaterialCode">[Material]</InArgument>
-                                <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ConsecutiveSystemExceptions" />
-                                <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_CurrentProcessingQueueItem">[currentQueueItem]</InArgument>
-                              </ui:InvokeWorkflowFile.Arguments>
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                            </ui:InvokeWorkflowFile>
-                          </Sequence>
-                        </ui:CommentOut.Body>
-                      </ui:CommentOut>
                       <Rethrow DisplayName="rethrow to main SE" sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="Rethrow_2" />
                     </Sequence>
                   </ActivityAction>
@@ -652,7 +624,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <Assign DisplayName="Assign: Get Queue Items Marked with Status=Failed Filtered" sap:VirtualizedContainerService.HintSize="574.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <Assign DisplayName="Assign: Get Queue Items Marked with Status=Failed Filtered" sap:VirtualizedContainerService.HintSize="731.3333333333334,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)">[RecallQueueItemsList]</OutArgument>
       </Assign.To>
@@ -666,60 +638,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <If sap2010:Annotation.AnnotationText="Then bot has no transaction data to process" Condition="[Not(RecallQueueItemsList.Count&gt;0)]" DisplayName="If: No filtered Queue item list count =0" sap:VirtualizedContainerService.HintSize="574.6666666666666,102.66666666666667" sap2010:WorkflowViewState.IdRef="If_7">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,202.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_29">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <x:Boolean x:Key="IsPinned">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <Throw DisplayName="Throw: BE No transaction data for the customer to place sales order" Exception="[new BusinessRuleException(&quot;The bot has no sales order to be placed for Customer:&quot;+in_SoldToParty+&quot; After the duplicate sales order check in ZVR3.&quot;)]" sap:VirtualizedContainerService.HintSize="354,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_1">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsPinned">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </Throw>
-        </Sequence>
-      </If.Then>
-      <If.Else>
-        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,300.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_30">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <x:Boolean x:Key="IsPinned">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage sap2010:Annotation.AnnotationText="Log Message: Bot Contuning to place sales order for the customer" DisplayName="Log Message: Bot Contuning to place sales order for the customer" sap:VirtualizedContainerService.HintSize="354,212.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Bot Contuning to place sales order for the customer:&quot;+in_SoldToParty]">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsPinned">True</x:Boolean>
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:LogMessage>
-        </Sequence>
-      </If.Else>
-    </If>
-    <ui:LogMessage sap2010:Annotation.AnnotationText="Log Message: Get recall queue item count Queue recalled after duplicate check and updated status as failed if Duplicate" DisplayName="Log Message: Get recall queue item count Queue recalled after duplicate check and updated status as failed if Duplicate" sap:VirtualizedContainerService.HintSize="574.6666666666666,152.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Queue recalled after duplicate check and updated status as failed if Duplicate&quot;+RecallQueueItemsList.Count.ToString]">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:LogMessage>
-    <TryCatch sap2010:Annotation.AnnotationText="Sales Order queue item would be set as either&#xA;1. Failed (BE exception Or SE exception)&#xA;Or&#xA;2. Successful" DisplayName="Try creating sales order Catch SE and BE" sap:VirtualizedContainerService.HintSize="574.6666666666666,1163.3333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch sap2010:Annotation.AnnotationText="Sales Order queue item would be set as either&#xA;1. Failed (BE exception Or SE exception)&#xA;Or&#xA;2. Successful" DisplayName="Try creating sales order Catch SE and BE" sap:VirtualizedContainerService.HintSize="731.3333333333334,2669.3333333333335" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -728,14 +647,67 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="Sequence: Creating RSK sales order" sap:VirtualizedContainerService.HintSize="512,799.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_37">
+        <Sequence DisplayName="Sequence: Creating RSK sales order" sap:VirtualizedContainerService.HintSize="692.6666666666666,2305.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_37">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="BuisnessWorkflow\003_CreateSalesOrderVA01.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="450,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="BuisnessWorkflow\003_CreateSalesOrderVA01.xaml">
+          <If sap2010:Annotation.AnnotationText="Then bot has no transaction data to process" Condition="[Not(RecallQueueItemsList.Count&gt;0)]" DisplayName="If: No filtered Queue item list count =0" sap:VirtualizedContainerService.HintSize="630.6666666666666,706" sap2010:WorkflowViewState.IdRef="If_7">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,202.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Throw DisplayName="Throw: BE No transaction data for the customer to place sales order" Exception="[new BusinessRuleException(&quot;The bot has no sales order to be placed for Customer:&quot;+in_SoldToParty+&quot; After the duplicate sales order check in ZVR3.&quot;)]" sap:VirtualizedContainerService.HintSize="354,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_1">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Throw>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,300.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage sap2010:Annotation.AnnotationText="Log Message: Bot Contuning to place sales order for the customer" DisplayName="Log Message: Bot Contuning to place sales order for the customer" sap:VirtualizedContainerService.HintSize="354,212.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Bot Contuning to place sales order for the customer:&quot;+in_SoldToParty]">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:LogMessage>
+              </Sequence>
+            </If.Else>
+          </If>
+          <ui:LogMessage sap2010:Annotation.AnnotationText="Log Message: Get recall queue item count Queue recalled after duplicate check and updated status as failed if Duplicate" DisplayName="Log Message: Get recall queue item count Queue recalled after duplicate check and updated status as failed if Duplicate" sap:VirtualizedContainerService.HintSize="630.6666666666666,181.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Queue recalled after duplicate check and updated status as failed if Duplicate&quot;+RecallQueueItemsList.Count.ToString]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LogMessage>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="BuisnessWorkflow\003_CreateSalesOrderVA01.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="630.6666666666666,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" Level="Info" LogEntry="[UiPath.Core.Activities.LogEntryType.OnlyInvocation]" LogExit="[UiPath.Core.Activities.LogExitType.OnlySuccessfulReturn]" UnSafe="False" WorkflowFileName="BuisnessWorkflow\003_CreateSalesOrderVA01.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
               <InArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)" x:Key="in_CustomerRequestQuequeItems">[RecallQueueItemsList]</InArgument>
@@ -747,7 +719,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <If Condition="[strOrderNumber isnot Nothing]" DisplayName="If Order Number is not nothing" sap:VirtualizedContainerService.HintSize="450,501.3333333333333" sap2010:WorkflowViewState.IdRef="If_9">
+          <If Condition="[strOrderNumber isnot Nothing]" DisplayName="If Order Number is not nothing" sap:VirtualizedContainerService.HintSize="630.6666666666666,1120" sap2010:WorkflowViewState.IdRef="If_9">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsPinned">True</x:Boolean>
@@ -755,14 +727,14 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,136" sap2010:WorkflowViewState.IdRef="Sequence_39">
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="596.6666666666666,754.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_39">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:ForEach x:TypeArguments="ui:QueueItem" CurrentIndex="{x:Null}" DisplayName="For Each currentQueueItem set Queue Status =Successful" sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="ForEach`1_8" Values="[RecallQueueItemsList]">
+                <ui:ForEach x:TypeArguments="ui:QueueItem" CurrentIndex="{x:Null}" DisplayName="For Each currentQueueItem set Queue Status =Successful" sap:VirtualizedContainerService.HintSize="534.6666666666666,666.6666666666666" sap2010:WorkflowViewState.IdRef="ForEach`1_8" Values="[RecallQueueItemsList]">
                   <ui:ForEach.Body>
                     <ActivityAction x:TypeArguments="ui:QueueItem">
                       <ActivityAction.Argument>
@@ -837,8 +809,8 @@
                   </ui:ForEach.Body>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:ForEach>
@@ -865,7 +837,7 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="516.6666666666666,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="697.3333333333334,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -887,7 +859,7 @@
             </Sequence>
           </ActivityAction>
         </Catch>
-        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="516.6666666666666,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_9">
+        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="697.3333333333334,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_9">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>

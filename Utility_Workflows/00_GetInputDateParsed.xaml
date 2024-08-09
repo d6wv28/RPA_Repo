@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1152,1970.6666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1152,2205.3333333333335</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_00_GetInputDateParsed_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -93,7 +93,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="_00_GetInputDateParsed" sap:VirtualizedContainerService.HintSize="688,1906" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="_00_GetInputDateParsed" sap:VirtualizedContainerService.HintSize="688,2140.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="array_DateFormats" />
       <Variable x:TypeArguments="s:DateTime" Name="parseDate" />
@@ -105,18 +105,34 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <Assign DisplayName="Assign: Parsing Successful" sap:VirtualizedContainerService.HintSize="626,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_12">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Boolean">[boolSuccess]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+      </Assign.Value>
+    </Assign>
     <Assign DisplayName="Assign: Input Date formats" sap:VirtualizedContainerService.HintSize="626,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_11">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[array_DateFormats]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="s:String[]">[New String(){"MM/dd/yyyy", "yyyy-MM-dd", "dd-MM-yyyy", "d-M-yyyy", "d-MM-yyyy", "dd.MM.yyyy", "d.M.yyyy", "d.MM.yyyy", "dd.M.yyyy","yyyy.MM.dd","yyyy-MM-dd","yy.MM.dd","yyyy-M-d","yyyy/M/d","yy/M/dd","yyyy.MM.d","yyyy-M-d","yy.M.d","yyyy-M-d","yyyy/M/d","yy/M/d",("dd/M/yyyy"),"d/M/yyyy"}]</InArgument>
+        <InArgument x:TypeArguments="s:String[]">[New String(){"MM/dd/yyyy", "yyyy-MM-dd", "dd-MM-yyyy", "d-M-yyyy", "d-MM-yyyy", "dd.MM.yyyy", "d.M.yyyy", "d.MM.yyyy","dd.M.yyyy", "dd.M.yyyy","yyyy.MM.dd","yyyy-MM-dd","yy.MM.dd","yyyy-M-d","yyyy/M/d","yy/M/dd","yyyy.MM.d","yyyy-M-d","yy.M.d","yyyy-M-d","yyyy/M/d","yy/M/d",("dd/M/yyyy"),"d/M/yyyy"}]</InArgument>
       </Assign.Value>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
+    </Assign>
+    <Assign DisplayName="Assign: trim input date" sap:VirtualizedContainerService.HintSize="626,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_13">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[in_strInputRequestedDeliveryDate]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_strInputRequestedDeliveryDate.Trim]</InArgument>
+      </Assign.Value>
     </Assign>
     <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each format in All common date formats" sap:VirtualizedContainerService.HintSize="626,1230.6666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[array_DateFormats]">
       <ui:ForEach.Body>
